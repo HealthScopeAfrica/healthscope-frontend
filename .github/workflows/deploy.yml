@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - prod
-  workflow_dispatch:    
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -17,4 +17,4 @@ jobs:
         run: npm install --global vercel@latest
 
       - name: Deploy to Vercel
-        run: vercel --prod --confirm --token=${{ secrets.VERCEL_TOKEN }} --project=${{ secrets.VERCEL_PROJECT_ID }}
+        run: vercel --prod --confirm --token=${{ secrets.VERCEL_TOKEN }}
