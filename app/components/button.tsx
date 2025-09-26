@@ -1,5 +1,6 @@
 import { Button as HeadlessButton } from '@headlessui/react'
 import { cva, type VariantProps } from "class-variance-authority"
+import { LuMail } from 'react-icons/lu'
 import { cn } from "~/lib/utils"
 
 const buttonVariants = cva(
@@ -7,11 +8,13 @@ const buttonVariants = cva(
     {
         variants: {
             variant: {
-                default: "bg-primary text-white hover:bg-primary/90",
-                destructive:
-                    "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+                default: "bg-primary text-white hover:bg-[#2A4581] active:bg-[#203562] disabled:bg-[#D5D5D5]",
+                google:
+                    "border border-black text-black gap-4 md:gap-4 max-w-[400px] w-full justify-start",
+                email:
+                    "border border-black text-black gap-4 md:gap-4 max-w-[400px] w-full justify-start",
                 outline:
-                    "border border-input border-primary text-primary hover:bg-accent hover:text-accent-foreground",
+                    "border border-input border-primary text-primary hover:border-[#2A4581] hover:text-[#2A4581] active:border-[#203562] active:text-[#203562] disabled:border-[#D5D5D5] disabled:text-[#D5D5D5]",
                 secondary:
                     "bg-secondary text-secondary-foreground hover:bg-secondary/80",
                 ghost: "hover:bg-accent hover:text-accent-foreground",
@@ -40,7 +43,9 @@ export interface ButtonProps
 const Button = ({ children, className, variant, size, ...props }: ButtonProps) => {
     return (
         <HeadlessButton className={cn(buttonVariants({ variant, size, className }))} {...props}>
-            {children}
+            {variant === 'google' && <img className="absolute left-4 h-7.5" src="/google.png" alt="" />}
+            {variant === 'email' && <LuMail size={30} className="absolute left-4" />}
+            <span className="flex-1 text-center">{children}</span>
         </HeadlessButton>
     )
 }

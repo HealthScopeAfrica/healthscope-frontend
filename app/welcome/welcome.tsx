@@ -4,6 +4,9 @@ import { PiUsers, PiWarning } from "react-icons/pi"
 import { LuCircleCheckBig } from "react-icons/lu"
 import Footer from "~/components/footer";
 import { useMediaQuery } from "@uidotdev/usehooks";
+import Button from "~/components/button";
+import Input from "~/components/input";
+import OTPInput from "~/components/OTP-input";
 
   const scopes = [{
     title: "The Problem",
