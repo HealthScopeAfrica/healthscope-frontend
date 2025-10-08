@@ -33,7 +33,7 @@ export function Welcome() {
       <Navigation />
       <main className="flex flex-col flex-1">
         <Hero />
-        <div className="flex flex-col gap-2 items-center md:py-12.5 md:px-25 p-4">
+        <div className="container flex flex-col gap-2 items-center md:py-12.5 py-4">
           <h2 className="font-semibold text-2xl md:text-[40px] leading-[120%] -tracking-[4%]">
             Why HealthScope Matters
           </h2>
