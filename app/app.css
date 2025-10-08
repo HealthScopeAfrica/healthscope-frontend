@@ -4,13 +4,105 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: "Inter";
 
-  --color-primary: #2563eb;
+  --color-blue-50: #edf2fd;
+  --color-blue-100: #c8d7f8;
+  --color-blue-200: #adc3f5;
+  --color-blue-300: #87a8f1;
+  --color-blue-400: #7097ee;
+  --color-blue-500: #4c7dea;
+  --color-blue-600: #4572d5;
+  --color-blue-700: #3659a6;
+  --color-blue-800: #2a4581;
+  --color-blue-900: #203562;
+
+  --color-green-50: #ebf6f3;
+  --color-green-100: #bfe3d8;
+  --color-green-200: #a1d6c6;
+  --color-green-300: #76c3ab;
+  --color-green-400: #5bb89b;
+  --color-green-500: #32a682;
+  --color-green-600: #2e9776;
+  --color-green-700: #24765c;
+  --color-green-800: #1c5b48;
+  --color-green-900: #154637;
+
+  --color-red-50: #fdecef;
+  --color-red-100: #f7c4cc;
+  --color-red-200: #f4a8b4;
+  --color-red-300: #ee8091;
+  --color-red-400: #eb687c;
+  --color-red-500: #e6425b;
+  --color-red-600: #d13c53;
+  --color-red-700: #a32f41;
+  --color-red-800: #7f2432;
+  --color-red-900: #611c26;
+
+  --color-yellow-50: #fcf9ec;
+  --color-yellow-100: #f6ebc3;
+  --color-yellow-200: #f2e2a5;
+  --color-yellow-300: #ecd47c;
+  --color-yellow-400: #e9cc63;
+  --color-yellow-500: #e3bf3c;
+  --color-yellow-600: #cfae37;
+  --color-yellow-700: #a1882b;
+  --color-yellow-800: #7d6921;
+  --color-yellow-900: #5f5019;
+
+  --color-gray-50: #f2f2f2;
+  --color-gray-100: #d5d5d5;
+  --color-gray-200: #c1c1c1;
+  --color-gray-300: #a5a5a5;
+  --color-gray-400: #949494;
+  --color-gray-500: #797979;
+  --color-gray-600: #6e6e6e;
+  --color-gray-700: #565656;
+  --color-gray-800: #434343;
+  --color-gray-900: #333333;
+
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  --color-primary: var(--color-blue-500);
+  --color-primary-foreground: var(--color-white);
+  --color-success: var(--color-green-500);
+  --color-success-foreground: var(--color-white);
+  --color-warning: var(--color-yellow-500);
+  --color-warning-foreground: var(--color-gray-900);
+  --color-danger: var(--color-red-500);
+  --color-danger-foreground: var(--color-white);
+  --color-surface: var(--color-white);
+  --color-surface-muted: var(--color-gray-50);
+  --color-surface-strong: var(--color-gray-900);
+  --color-border: var(--color-gray-200);
+  --color-border-strong: var(--color-gray-400);
+  --color-text: var(--color-gray-900);
+  --color-text-muted: var(--color-gray-600);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --color-surface: #0f141b;
+    --color-surface-muted: #fafafa;
+    --color-surface-strong: var(--color-white);
+    --color-border: rgba(255, 255, 255, 0.08);
+    --color-border-strong: rgba(255, 255, 255, 0.18);
+    --color-text: rgba(255, 255, 255, 0.94);
+    --color-text-muted: rgba(255, 255, 255, 0.65);
+  }
+
+  .container {
+    @apply mx-auto w-full max-w-[90rem] px-4 xl:px-[100px]
+  }
 }
 
 html,
 body {
-  @apply bg-[#FAFAFA];
+  @apply bg-surface-muted text-text;
 }
