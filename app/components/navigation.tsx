@@ -4,17 +4,17 @@ import { useState } from "react"
 import { LuX } from "react-icons/lu"
 import { href, Link } from "react-router"
 const links = [{
-  title: "Features",
+  title: "Home",
   href: "#",
 }, {
   title: "Partners",
   href: "#",
 }, {
-  title: "Contributions",
+  title: "Contributors",
   href: "#",
 }, {
   title: "About Us",
-  href: "#", 
+  href: "#",
 }]
 const Navigation = () => {
   const [open, setOpen] = useState(false)

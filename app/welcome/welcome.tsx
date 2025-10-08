@@ -50,7 +50,7 @@ export function Welcome() {
                 </p>
 
                 <div className="flex flex-wrap gap-2 md:gap-10 mt-2 md:mt-6">
-                  {scope.bottom?.map((item, index) => <div className="gap-1 flex bg-white rounded-full px-3.75 py-2 border border-[#D5D5D5] items-center">
+                  {scope.bottom?.map((item, index) => <div key={item} className="gap-1 flex bg-white rounded-full px-3.75 py-2 border border-[#D5D5D5] items-center">
                     <LuCircleCheckBig color="#32A682" size={isMobile ? 16 : 21} />
                     <span className="text-sm md:text-xl leading-[120%] tracking-[-2%]">{item}</span>
                   </div>)}
