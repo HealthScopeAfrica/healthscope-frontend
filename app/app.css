@@ -86,17 +86,6 @@
     color-scheme: light;
   }
 
-  .dark {
-    color-scheme: dark;
-    --color-surface: #0f141b;
-    --color-surface-muted: #fafafa;
-    --color-surface-strong: var(--color-white);
-    --color-border: rgba(255, 255, 255, 0.08);
-    --color-border-strong: rgba(255, 255, 255, 0.18);
-    --color-text: rgba(255, 255, 255, 0.94);
-    --color-text-muted: rgba(255, 255, 255, 0.65);
-  }
-
   .container {
     @apply mx-auto w-full max-w-[90rem] px-4 xl:px-[100px]
   }
@@ -104,5 +93,5 @@
 
 html,
 body {
-  @apply bg-surface-muted text-text;
+  @apply bg-surface text-text;
 }
