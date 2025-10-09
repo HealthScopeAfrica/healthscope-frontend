@@ -1,61 +1,92 @@
 import Hero from "~/components/hero";
 import Navigation from "~/components/navigation";
-import { PiUsers, PiWarning } from "react-icons/pi"
-import { LuCircleCheckBig } from "react-icons/lu"
+import { PiUsers, PiWarning } from "react-icons/pi";
+import { LuCircleCheckBig } from "react-icons/lu";
 import Footer from "~/components/footer";
-import { useMediaQuery } from "@uidotdev/usehooks";
-import Button from "~/components/button";
-import Input from "~/components/input";
-import OTPInput from "~/components/OTP-input";
 
-  const scopes = [{
+const scopes = [
+  {
     title: "The Problem",
     desc: "Millions of Africans search online for health answers, but too often the results are misleading, foreign, or unverified.",
     icon: PiWarning,
-    color: "#D13C53"
-  }, {
+    color: "#D13C53",
+  },
+  {
     title: "The Gap",
     desc: "African health experts, professionals, NGOs, and institutions lack unified platforms to reach the communities that need their knowledge most.",
     icon: PiUsers,
-    color: "#CFAE37"
-  }, {
-    title: "The Solution",
-    desc: "HealthScope bridges this gap. We partner with stakeholders in the health value chain to provide accessible health knowledge, making trusted health information easy to find, easy to understand, and easy to trust.",
-    icon: LuCircleCheckBig,
-    color: "#32A682",
-    bottom: ["Easy to Find", "Easy to Understand", "Easy to Trust"]
-  }]
+    color: "#CFAE37",
+  },
+];
 export function Welcome() {
-  const isMobile = useMediaQuery('(max-width: 768px)')
   return (
     <>
       <Navigation />
-      <main className="flex flex-col flex-1">
+      <main>
         <Hero />
-        <div className="flex flex-col gap-2 items-center md:py-12.5 md:px-25 p-4">
-          <h2 className="font-semibold text-2xl md:text-[40px] leading-[120%] -tracking-[4%]">
+        <div className="py-8 md:py-16 lg:py-16">
+          <h2 className="font-semibold text-center text-2xl md:text-3xl lg:text-[40px] mb-8 md:mb-12 lg:mb-16 px-4">
             Why HealthScope Matters
           </h2>
-          <div className="flex flex-col">
-            <div className="md:grid flex flex-col md:grid-cols-2 gap-9">
-              {scopes.map((scope, index) => <div className={`md:py-10 p-2 md:px-7.5 w-full ${index === 2 ? 'col-span-2' : 'border bg-white '} rounded-md border-[#D5D5D5] gap-3.75`} key={scope.title}>
-                <div className="flex gap-1.25 items-center">
-                  <div className="size-12 rounded-sm flex items-center justify-center" style={{ backgroundColor: (scope.color + "10") }}>
-                    <scope.icon color={scope.color} size={24} />
+          <div className="space-y-8 md:space-y-12 lg:space-y-16">
+            <div className="container grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-9">
+              {scopes.map((scope) => (
+                <div
+                  className="p-4 md:p-6 lg:py-10 lg:px-7.5 w-full rounded-md border border-[#D5D5D5] bg-white shadow-sm hover:shadow-md transition-shadow"
+                  key={scope.title}
+                >
+                  <div className="flex gap-3 md:gap-4 lg:gap-1.25 items-center mb-3 md:mb-4">
+                    <div
+                      className="size-10 md:size-12 lg:size-12.5 rounded-sm flex items-center justify-center shrink-0"
+                      style={{ backgroundColor: scope.color + "10" }}
+                    >
+                      <scope.icon
+                        color={scope.color}
+                        className="text-xl md:text-2xl lg:text-4xl"
+                      />
+                    </div>
+                    <h3 className="font-semibold text-lg md:text-xl lg:text-[28px] leading-tight">
+                      {scope.title}
+                    </h3>
                   </div>
-                  <h3 className="font-semibold text-lg">{scope.title}</h3>
+                  <p className="text-sm md:text-[20px] lg:text-[22px] xl:text-[22px]  text-gray-500 leading-relaxed">
+                    {scope.desc}
+                  </p>
                 </div>
-                <p className="mt-2 text-base text-[#797979] leading-[160%] -tracking-[2%]">
-                  {scope.desc}
+              ))}
+            </div>
+            <div className="bg-gray-50 py-8 md:py-12 lg:py-16">
+              <div className="container">
+                <div className="flex gap-3 md:gap-4 lg:gap-1.25 items-center mb-4 md:mb-6">
+                  <div className="size-10 md:size-12 lg:size-12.5 rounded-sm flex items-center justify-center bg-green-50 shrink-0">
+                    <LuCircleCheckBig className="text-green-500 text-xl md:text-2xl lg:text-4xl" />
+                  </div>
+                  <h3 className="font-semibold text-lg md:text-xl lg:text-[28px] leading-tight">
+                    The Solution
+                  </h3>
+                </div>
+                <p className="text-sm md:text-base lg:text-2xl text-gray-500 leading-relaxed max-w-none lg:max-w-[1111px] mb-4 md:mb-6 lg:mb-8">
+                  HealthScope bridges this gap. We partner with stakeholders in
+                  the health value chain to provide accessible health knowledge,
+                  making trusted health information easy to find, easy to
+                  understand, and easy to trust.
                 </p>
-
-                <div className="flex flex-wrap gap-2 md:gap-10 mt-2 md:mt-6">
-                  {scope.bottom?.map((item, index) => <div className="gap-1 flex bg-white rounded-full px-3.75 py-2 border border-[#D5D5D5] items-center">
-                    <LuCircleCheckBig color="#32A682" size={isMobile ? 16 : 21} />
-                    <span className="text-sm md:text-xl leading-[120%] tracking-[-2%]">{item}</span>
-                  </div>)}
+                <div className="flex flex-wrap gap-2 md:gap-4 lg:gap-10">
+                  {["Easy to Find", "Easy to Understand", "Easy to Trust"].map(
+                    (item) => (
+                      <div 
+                        key={item}
+                        className="gap-2 md:gap-3 flex bg-white rounded-full px-3 md:px-3.75 py-2 border border-gray-100 items-center shadow-sm hover:shadow-md transition-shadow"
+                      >
+                        <LuCircleCheckBig className="text-green-500 text-base md:text-lg lg:text-2xl shrink-0" />
+                        <span className="text-xs md:text-sm lg:text-xl font-medium whitespace-nowrap">
+                          {item}
+                        </span>
+                      </div>
+                    )
+                  )}
                 </div>
-              </div>)}
+              </div>
             </div>
           </div>
         </div>
