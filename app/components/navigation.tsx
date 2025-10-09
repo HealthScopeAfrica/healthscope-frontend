@@ -9,6 +9,8 @@ import Button from "./button";
 import { useState } from "react";
 import { LuX } from "react-icons/lu";
 import { href, Link } from "react-router";
+import { usePublicAuth } from "~/marketing/components/auth/public-auth-provider";
+
 const links = [
   {
     title: "Features",
@@ -29,6 +31,7 @@ const links = [
 ];
 const Navigation = () => {
   const [open, setOpen] = useState(false);
+  const { openSignIn, openSignUp } = usePublicAuth();
   return (
     <>
       <div className="container flex items-center justify-between py-4 xl:py-6">
@@ -55,8 +58,8 @@ const Navigation = () => {
             ))}
           </div>
           <div className="flex gap-3 shrink-0">
-            <Button variant="outline">Sign In</Button>
-            <Button>Get Started</Button>
+            <Button variant="outline" onClick={openSignIn}>Sign In</Button>
+            <Button onClick={openSignUp}>Get Started</Button>
           </div>
         </div>
 
@@ -130,8 +133,8 @@ const Navigation = () => {
                       </Link>
                     ))}
                     <div className="flex flex-col gap-3 mt-6 px-4">
-                      <Button variant="outline" className="w-full">Sign In</Button>
-                      <Button className="w-full">Get Started</Button>
+                      <Button variant="outline" className="w-full" onClick={openSignIn}>Sign In</Button>
+                      <Button className="w-full" onClick={openSignUp}>Get Started</Button>
                     </div>
                   </div>
                 </div>

@@ -1,5 +1,5 @@
 import type { Route } from "./+types/home";
-import Hero from "~/components/hero";
+import Hero from "~/marketing/components/hero";
 import { PiUsers, PiWarning } from "react-icons/pi";
 import { LuCircleCheckBig } from "react-icons/lu";
 import { generateMeta } from "~/lib/meta";
@@ -16,13 +16,7 @@ const scopes = [
     desc: "African health experts, professionals, NGOs, and institutions lack unified platforms to reach the communities that need their knowledge most.",
     icon: PiUsers,
     color: "#3C82F6",
-  },
-  {
-    title: "The Solution",
-    desc: "A comprehensive platform where African health professionals can share verified knowledge, connect with communities, and build trust through evidence-based content.",
-    icon: LuCircleCheckBig,
-    color: "#10B981",
-  },
+  }
 ];
 
 export function meta({}: Route.MetaArgs) {
@@ -41,7 +35,7 @@ export default function Home() {
           <div className="container grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-9">
             {scopes.map((scope) => (
               <div
-                className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="bg-white p-14 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
                 key={scope.title}
               >
                 <div className="flex gap-3 md:gap-4 lg:gap-1.25 items-center mb-6">
