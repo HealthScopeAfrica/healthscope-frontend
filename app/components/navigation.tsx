@@ -31,7 +31,7 @@ const Navigation = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div className="container flex items-center xl:gap-32 py-4 xl:py-6">
+      <div className="container flex items-center justify-between xl:gap-32 py-4 xl:py-6">
         <img
           src="/images/logo.png"
           alt="Logo"
@@ -104,7 +104,7 @@ const Navigation = () => {
                   <div className="px-4 sm:px-6">
                     <DialogTitle className="text-base font-semibold text-black">
                       <img
-                        src="/logo.png"
+                        src="images//logo.png"
                         alt="Logo"
                         className="h-[42px] w-auto"
                       />
