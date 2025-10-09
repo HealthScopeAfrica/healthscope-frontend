@@ -7,4 +7,10 @@ export default [
     route("features", "marketing/features.tsx"),
     route("about-us", "marketing/about-us.tsx"),
   ]),
+
+
+   // Public pages with public layout
+  layout("layouts/auth-layout.tsx", [
+    route("partner/auth/login", "partner/auth/login.tsx"),
+  ]),
 ] satisfies RouteConfig;
