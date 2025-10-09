@@ -12,19 +12,19 @@ import { href, Link } from "react-router";
 const links = [
   {
     title: "Features",
-    href: "#",
+    href: "/features",
   },
   {
     title: "Partners",
-    href: "#",
+    href: "/partner/auth/login",
   },
   {
-    title: "Contributions",
-    href: "#",
+    title: "Contributors",
+    href: "/contributor/auth/login",
   },
   {
     title: "About Us",
-    href: "#",
+    href: "/about-us",
   },
 ];
 const Navigation = () => {
@@ -33,11 +33,13 @@ const Navigation = () => {
     <>
       <div className="container flex items-center justify-between py-4 xl:py-6">
         <div className="flex items-center">
-          <img
-            src="/images/logo.png"
-            alt="Logo"
-            className="h-10 xl:h-[58px] w-auto shrink-0"
-          />
+          <Link to="/">
+            <img
+              src="/images/logo.png"
+              alt="Logo"
+              className="h-10 xl:h-[58px] w-auto shrink-0"
+            />
+          </Link>
         </div>
         
         <div className="hidden lg:flex flex-1 justify-between items-center ml-8">
