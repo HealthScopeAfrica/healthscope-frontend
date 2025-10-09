@@ -24,7 +24,7 @@ const Hero = () => {
       <img
         src="/images/hero.jpg"
         alt="Hero Image"
-        className="max-w-[623px] aspect-auto bg-contain rounded-md"
+        className="md:max-w-[623px] aspect-auto bg-contain rounded-md"
       />
     </div>
   );
