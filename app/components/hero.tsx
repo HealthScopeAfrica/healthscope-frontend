@@ -2,30 +2,30 @@ import Button from "./button";
 
 const Hero = () => {
   return (
-    <div className="container flex flex-col md:flex-row items-center md:pb-12.5 py-4 gap-[29px] justify-between">
-      {" "}
-      {/* Adjust height to account for navigation bar height */}
-      <div className="flex flex-col gap-[43px]">
-        <div className="flex flex-col gap-5">
-          <h1 className="text-3xl md:text-[56px] font-medium leading-[110%] -tracking-[4%] max-w-[575px]">
+    <div className="container flex flex-col md:flex-row items-center md:items-start lg:items-center py-8 md:py-12 lg:py-16 gap-8 md:gap-12 lg:gap-16">
+      <div className="flex flex-col gap-6 md:gap-8 lg:gap-[43px] flex-1">
+        <div className="flex flex-col gap-4 md:gap-5">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-[56px] font-medium leading-[110%] -tracking-[4%] max-w-none md:max-w-[575px]">
             From quick answers to deep insights
           </h1>
-          <p className="mt-4 text-lg md:text-2xl leading-[120%] tracking-[-2%] text-gray-600 max-w-[540px]">
-            HealthScope is Africa’s first experts-driven health content
+          <p className="text-base md:text-md lg:text-lg xl:text-[22px] leading-[120%] tracking-[-2%] text-gray-600 max-w-none md:max-w-[540px]">
+            HealthScope is Africa's first experts-driven health content
             Platform, designed to give you trusted information anytime,
             anywhere.
           </p>
         </div>
-        <div className="flex gap-5">
-          <Button>Start Reading</Button>
-          <Button variant="outline">Talk to Kulo</Button>
+        <div className="flex flex-wrap gap-3 md:gap-5">
+          <Button className="shrink-0">Start Reading</Button>
+          <Button variant="outline" className="shrink-0">Talk to Kulo</Button>
         </div>
       </div>
-      <img
-        src="/images/hero.jpg"
-        alt="Hero Image"
-        className="md:max-w-[623px] aspect-auto bg-contain rounded-md"
-      />
+      <div className="flex-1 flex justify-center md:justify-end">
+        <img
+          src="/images/hero.jpg"
+          alt="Hero Image"
+          className="w-full max-w-sm md:max-w-md lg:max-w-lg xl:max-w-[623px] h-auto object-cover rounded-md"
+        />
+      </div>
     </div>
   );
 };
