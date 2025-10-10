@@ -78,6 +78,7 @@
   --color-border: var(--color-gray-200);
   --color-border-strong: var(--color-gray-400);
   --color-text: var(--color-gray-900);
+  --color-text-strong: #0a0a0a;
   --color-text-muted: var(--color-gray-600);
 }
 
@@ -89,7 +90,7 @@
   .dark {
     color-scheme: dark;
     --color-surface: #0f141b;
-    --color-surface-muted: #fafafa;
+    --color-surface-muted: #f9fafb;
     --color-surface-strong: var(--color-white);
     --color-border: rgba(255, 255, 255, 0.08);
     --color-border-strong: rgba(255, 255, 255, 0.18);
