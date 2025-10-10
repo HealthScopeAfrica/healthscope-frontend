@@ -8,36 +8,41 @@ import {
 import Button from "./button";
 import { useState } from "react";
 import { LuX } from "react-icons/lu";
-import { href, Link } from "react-router";
+import { Link } from "react-router";
+import { usePublicAuth } from "~/marketing/components/auth/public-auth-provider";
+
 const links = [
   {
     title: "Features",
-    href: "#",
+    href: "/features",
   },
   {
     title: "Partners",
-    href: "#",
+    href: "/partner/auth/login",
   },
   {
-    title: "Contributions",
-    href: "#",
+    title: "Contributors",
+    href: "/contributor/auth/login",
   },
   {
     title: "About Us",
-    href: "#",
+    href: "/about-us",
   },
 ];
 const Navigation = () => {
   const [open, setOpen] = useState(false);
+  const { openSignIn, openSignUp } = usePublicAuth();
   return (
     <>
       <div className="container flex items-center justify-between py-4 xl:py-6">
         <div className="flex items-center">
-          <img
-            src="/images/logo.png"
-            alt="Logo"
-            className="h-10 xl:h-[58px] w-auto shrink-0"
-          />
+          <Link to="/">
+            <img
+              src="/images/logo.png"
+              alt="Logo"
+              className="h-10 xl:h-[58px] w-auto shrink-0"
+            />
+          </Link>
         </div>
         
         <div className="hidden lg:flex flex-1 justify-between items-center ml-8">
@@ -46,15 +51,15 @@ const Navigation = () => {
               <Link
                 to={link.href}
                 key={link.title}
-                className="text-lg xl:text-[20px] leading-[120%] -tracking-[2%] hover:text-gray-600 transition-colors whitespace-nowrap"
+                className="text-lg xl:text-[20px] leading-[120%] -tracking-[2%] hover:text-blue-600 transition-colors whitespace-nowrap"
               >
                 {link.title}
               </Link>
             ))}
           </div>
           <div className="flex gap-3 shrink-0">
-            <Button variant="outline">Sign In</Button>
-            <Button>Get Started</Button>
+            <Button variant="outline" onClick={openSignIn}>Sign In</Button>
+            <Button onClick={openSignUp}>Get Started</Button>
           </div>
         </div>
 
@@ -106,14 +111,16 @@ const Navigation = () => {
                     </button>
                   </div>
                 </TransitionChild>
-                <div className="relative flex h-full flex-col overflow-y-auto bg-white py-6 shadow-xl after:absolute after:inset-y-0 after:left-0 after:w-px after:bg-white/10">
+                <div className="relative sm:w-[90vw] flex h-full flex-col overflow-y-auto bg-white py-6 shadow-xl after:absolute after:inset-y-0 after:left-0 after:w-px after:bg-white/10">
                   <div className="px-4 sm:px-6 border-b border-gray-100 pb-4">
                     <DialogTitle className="text-base font-semibold text-black">
-                      <img
-                        src="images//logo.png"
-                        alt="Logo"
-                        className="h-[42px] w-auto"
-                      />
+                      <Link to="/">
+                        <img
+                          src="/images/logo.png"
+                          alt="Logo"
+                          className="h-[42px] w-auto"
+                        />
+                      </Link>
                     </DialogTitle>
                   </div>
                   <div className="relative mt-6 flex-1 flex flex-col gap-4 px-4 sm:px-6">
@@ -128,8 +135,25 @@ const Navigation = () => {
                       </Link>
                     ))}
                     <div className="flex flex-col gap-3 mt-6 px-4">
-                      <Button variant="outline" className="w-full">Sign In</Button>
-                      <Button className="w-full">Get Started</Button>
+                      <Button 
+                        variant="outline" 
+                        className="w-full" 
+                        onClick={() => {
+                          setOpen(false);
+                          openSignIn();
+                        }}
+                      >
+                        Sign In
+                      </Button>
+                      <Button 
+                        className="w-full" 
+                        onClick={() => {
+                          setOpen(false);
+                          openSignUp();
+                        }}
+                      >
+                        Get Started
+                      </Button>
                     </div>
                   </div>
                 </div>

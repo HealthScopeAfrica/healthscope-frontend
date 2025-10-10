@@ -1,6 +1,8 @@
-import Button from "./button";
+import Button from "~/components/button";
+import { usePublicAuth } from "./auth/public-auth-provider";
 
 const Hero = () => {
+  const { openSignUp } = usePublicAuth();
   return (
     <div className="container flex flex-col md:flex-row items-center md:items-start lg:items-center py-8 md:py-12 lg:py-16 gap-8 md:gap-12 lg:gap-16">
       <div className="flex flex-col gap-6 md:gap-8 lg:gap-[43px] flex-1">
@@ -15,7 +17,7 @@ const Hero = () => {
           </p>
         </div>
         <div className="flex flex-wrap gap-3 md:gap-5">
-          <Button className="shrink-0">Start Reading</Button>
+          <Button className="shrink-0" onClick={openSignUp}>Start Reading</Button>
           <Button variant="outline" className="shrink-0">Talk to Kulo</Button>
         </div>
       </div>
