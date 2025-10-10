@@ -31,7 +31,7 @@ export function AuthModal({ isOpen, onClose, children, className }: AuthModalPro
       <div className="absolute inset-0 bg-black/50" onClick={onClose} />
 
       {/* Modal */}
-      <div className={cn("relative bg-white rounded-2xl shadow-xl w-full max-w-md mx-4 p-8", className)}>
+      <div className={cn("relative bg-white rounded-2xl shadow-xl w-full max-w-lg mx-4 p-8", className)}>
         {/* Close button */}
         <button
           onClick={onClose}

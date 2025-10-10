@@ -13,4 +13,7 @@ export default [
   layout("layouts/auth-layout.tsx", [
     route("partner/auth/login", "partner/auth/login.tsx"),
   ]),
+
+  //complete account onboarding
+  route("onboarding", "reader/onboarding.tsx"),
 ] satisfies RouteConfig;

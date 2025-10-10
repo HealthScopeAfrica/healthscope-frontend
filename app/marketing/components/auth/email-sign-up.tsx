@@ -11,6 +11,9 @@ export function EmailSignUp({ onBack, onCreateAccount }: EmailSignUpProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     onCreateAccount(email)
+    setTimeout(() => {
+      window.location.replace("/onboarding?email=" + encodeURIComponent(email))
+    }, 500)
   }
 
   return (
