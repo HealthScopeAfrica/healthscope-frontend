@@ -38,7 +38,7 @@ export function ArticleCard({
 
   return (
     <Link 
-      to={`/reader/dashboard/article/${article.id}?from=${source}`}
+      to={`/reader/dashboard/articles/${article.id}?from=${source}`}
       className={`block transition-transform hover:scale-[1.02] ${className}`}
     >
       <Card className="overflow-hidden border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-200">

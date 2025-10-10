@@ -2,43 +2,50 @@ import { MessageCircle, BookOpen, TrendingUp, Clock } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { Badge } from "~/components/ui/badge";
 import { Link } from "react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { KuloChatPanel } from "~/reader/components/kulo-ai/simple-chat";
+import { getFeaturedArticles, getArticles, type Article } from "~/reader/data/articles";
 
 export default function DashboardPage() {
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [featuredArticles, setFeaturedArticles] = useState<Article[]>([]);
+  const [recentArticles, setRecentArticles] = useState<Article[]>([]);
+  const [isLoadingFeatured, setIsLoadingFeatured] = useState(true);
+  const [isLoadingRecent, setIsLoadingRecent] = useState(true);
 
-  const featuredArticles = [
-    {
-      id: 1,
-      category: "General Health",
-      title: "Understanding Malaria Prevention in Sub-Saharan Africa",
-      author: "Dr. Amina Olufar",
-      readTime: "8 min read",
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
-      trending: true,
-    },
-    {
-      id: 2,
-      category: "Mental Health",
-      title: "Addressing Mental Health Stigma in African Communities",
-      author: "Dr. John Mensah",
-      readTime: "6 min read",
-      image:
-        "https://images.unsplash.com/photo-1527689368864-3a821dbccc34?w=400",
-      trending: false,
-    },
-    {
-      id: 3,
-      category: "Nutrition",
-      title: "Traditional African Foods and Modern Nutrition Science",
-      author: "Dr. Fatima Hassan",
-      readTime: "10 min read",
-      image:
-        "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400",
-      trending: true,
-    },
-  ];
+  // Load featured articles
+  useEffect(() => {
+    async function loadFeaturedArticles() {
+      try {
+        setIsLoadingFeatured(true);
+        const articles = await getFeaturedArticles();
+        setFeaturedArticles(articles.slice(0, 3)); // Show only first 3 on dashboard
+      } catch (error) {
+        console.error("Failed to load featured articles:", error);
+      } finally {
+        setIsLoadingFeatured(false);
+      }
+    }
+
+    loadFeaturedArticles();
+  }, []);
+
+  // Load recent articles
+  useEffect(() => {
+    async function loadRecentArticles() {
+      try {
+        setIsLoadingRecent(true);
+        const articles = await getArticles();
+        setRecentArticles(articles.slice(0, 3)); // Show only first 3 on dashboard
+      } catch (error) {
+        console.error("Failed to load recent articles:", error);
+      } finally {
+        setIsLoadingRecent(false);
+      }
+    }
+
+    loadRecentArticles();
+  }, []);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -141,46 +148,66 @@ export default function DashboardPage() {
           <div>
             <h3 className="text-xl font-semibold mb-4">Featured Articles</h3>
             <div className="space-y-4">
-              {featuredArticles.map((article) => (
-                <Link
-                  key={article.id}
-                  to={`/reader/dashboard/articles/${article.id}`}
-                  className="flex flex-1 flex-col"
-                >
-                  <div className="bg-white p-12 border border-gray-100 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+              {isLoadingFeatured ? (
+                // Loading skeleton
+                Array.from({ length: 3 }).map((_, index) => (
+                  <div key={index} className="bg-white p-12 border border-gray-100 rounded-lg animate-pulse">
                     <div className="flex gap-4">
-                      <div className="relative w-48 h-32 flex-shrink-0 rounded-lg ">
-                        <img
-                          src={article.image || "/placeholder.svg"}
-                          alt={article.title}
-                          className="w-full h-full object-cover"
-                        />
-                        {article.trending && (
-                          <Badge className="absolute  top-[-9px] right-0 bg-red-500 text-white">
-                            <TrendingUp className="h-4 w-3 mr-1" />
-                            Trending
-                          </Badge>
-                        )}
-                      </div>
-                      <div className="flex-1">
-                        <Badge variant="secondary" className="mb-2 text-xs">
-                          {article.category}
-                        </Badge>
-                        <h4 className="font-semibold text-gray-900 mb-2 line-clamp-2">
-                          {article.title}
-                        </h4>
-                        <div className="flex items-center gap-4 text-sm text-gray-600">
-                          <span>By {article.author}</span>
-                          <span className="flex items-center gap-1">
-                            <Clock className="h-4 w-4" />
-                            {article.readTime}
-                          </span>
-                        </div>
+                      <div className="w-48 h-32 bg-gray-200 rounded-lg"></div>
+                      <div className="flex-1 space-y-3">
+                        <div className="h-4 bg-gray-200 rounded w-1/4"></div>
+                        <div className="h-6 bg-gray-200 rounded w-3/4"></div>
+                        <div className="h-4 bg-gray-200 rounded w-1/2"></div>
                       </div>
                     </div>
                   </div>
-                </Link>
-              ))}
+                ))
+              ) : (
+                featuredArticles.map((article) => (
+                  <Link
+                    key={article.id}
+                    to={`/reader/dashboard/articles/${article.id}?from=dashboard`}
+                    className="flex flex-1 flex-col"
+                  >
+                    <div className="bg-white p-12 border border-gray-100 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+                      <div className="flex gap-4">
+                        <div className="relative w-48 h-32 flex-shrink-0 rounded-lg">
+                          <img
+                            src={article.image || "/placeholder.svg"}
+                            alt={article.title}
+                            className="w-full h-full object-cover rounded-lg"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.src = "/placeholder-article.jpg";
+                            }}
+                          />
+                          {article.trending && (
+                            <Badge className="absolute top-[-9px] right-0 bg-red-500 text-white">
+                              <TrendingUp className="h-4 w-3 mr-1" />
+                              Trending
+                            </Badge>
+                          )}
+                        </div>
+                        <div className="flex-1">
+                          <Badge variant="secondary" className="mb-2 text-xs">
+                            {article.category}
+                          </Badge>
+                          <h4 className="font-semibold text-gray-900 mb-2 line-clamp-2">
+                            {article.title}
+                          </h4>
+                          <div className="flex items-center gap-4 text-sm text-gray-600">
+                            <span>By {article.author}</span>
+                            <span className="flex items-center gap-1">
+                              <Clock className="h-4 w-4" />
+                              {article.readTime}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                ))
+              )}
             </div>
           </div>
         </div>

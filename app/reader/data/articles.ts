@@ -19,14 +19,12 @@ export interface Article {
   hasAudio: boolean
   image: string
   publishedAt: string
-  trending?: boolean
-  recommended?: boolean
+  featured?: boolean    // Flag for featured articles
+  trending?: boolean    // Flag for trending articles
+  recommended?: boolean // Flag for recommended articles
 }
 
-export interface FeaturedArticle extends Article {
-  trending: boolean
-  featured: true
-}
+// Remove the separate FeaturedArticle interface - not needed anymore
 
 /**
  * Mock data for regular articles
@@ -70,6 +68,8 @@ export const mockArticles: Article[] = [
     hasAudio: true,
     image: "/doctor-patient-consultation.png",
     publishedAt: "2024-10-08",
+    trending: true,      // This article is trending
+    recommended: true,   // This article is recommended
   },
   {
     id: 2,
@@ -150,6 +150,7 @@ export const mockArticles: Article[] = [
     hasAudio: false,
     image: "/mental-health-wellness.png",
     publishedAt: "2024-10-06",
+    recommended: true,   // Mental health is recommended content
   },
   {
     id: 4,
@@ -295,7 +296,7 @@ export const mockArticles: Article[] = [
  * Mock data for featured articles
  * TODO: Replace with API call to GET /api/articles/featured
  */
-export const mockFeaturedArticles: FeaturedArticle[] = [
+export const mockFeaturedArticles: Article[] = [
   {
     id: 101,
     category: "General Health",
@@ -460,10 +461,32 @@ export async function getArticles(): Promise<Article[]> {
  * Fetch featured articles
  * TODO: Replace with actual API call
  */
-export async function getFeaturedArticles(): Promise<FeaturedArticle[]> {
+export async function getFeaturedArticles(): Promise<Article[]> {
   // Simulate API delay
   await new Promise(resolve => setTimeout(resolve, 500))
   return mockFeaturedArticles
+}
+
+/**
+ * Fetch articles by type using flags
+ * TODO: Replace with actual API call with filters
+ */
+export async function getArticlesByType(options: {
+  featured?: boolean
+  trending?: boolean
+  recommended?: boolean
+}): Promise<Article[]> {
+  // Simulate API delay
+  await new Promise(resolve => setTimeout(resolve, 500))
+  
+  const allArticles = [...mockArticles, ...mockFeaturedArticles]
+  
+  return allArticles.filter(article => {
+    if (options.featured !== undefined && article.featured !== options.featured) return false
+    if (options.trending !== undefined && article.trending !== options.trending) return false
+    if (options.recommended !== undefined && article.recommended !== options.recommended) return false
+    return true
+  })
 }
 
 /**

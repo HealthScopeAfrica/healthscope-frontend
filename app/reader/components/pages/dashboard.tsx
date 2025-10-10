@@ -9,13 +9,13 @@ import { BookOpen, TrendingUp, Clock, Plus } from "lucide-react"
 import { Button } from "~/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card"
 import { ArticleList } from "~/reader/components/shared/article-card"
-import { getFeaturedArticles, getArticles, type Article, type FeaturedArticle } from "~/reader/data/articles"
+import { getFeaturedArticles, getArticles, type Article } from "~/reader/data/articles"
 
 /**
  * Main Reader Dashboard Component
  */
 export default function ReaderDashboard() {
-  const [featuredArticles, setFeaturedArticles] = useState<FeaturedArticle[]>([])
+  const [featuredArticles, setFeaturedArticles] = useState<Article[]>([])
   const [recentArticles, setRecentArticles] = useState<Article[]>([])
   const [isLoadingFeatured, setIsLoadingFeatured] = useState(true)
   const [isLoadingRecent, setIsLoadingRecent] = useState(true)

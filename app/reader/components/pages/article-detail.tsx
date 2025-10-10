@@ -2,10 +2,102 @@ import { ArrowLeft, Bookmark, Share2, Play, Globe, Clock, Calendar, Eye } from "
 import { Button } from "~/components/ui/button"
 import { Badge } from "~/components/ui/badge"
 import { Card, CardContent } from "~/components/ui/card"
-import { Link, useParams } from "react-router"
+import { Link, useParams, useSearchParams, useNavigate } from "react-router"
+import { useState, useEffect } from "react"
+import { getArticleById, type Article } from "~/reader/data/articles"
 
 export default function ArticleDetailPage() {
   const { id } = useParams()
+  const [searchParams] = useSearchParams()
+  const navigate = useNavigate()
+  const [article, setArticle] = useState<Article | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  const fromSource = searchParams.get('from')
+
+  // Function to handle back navigation
+  const handleBack = () => {
+    // If there's a previous page in browser history, go back
+    if (window.history.length > 1) {
+      navigate(-1)
+    } else {
+      // Fallback to appropriate page based on source
+      switch (fromSource) {
+        case 'dashboard':
+          navigate('/reader/dashboard')
+          break
+        case 'featured':
+          navigate('/reader/dashboard/featured')
+          break
+        case 'articles':
+        default:
+          navigate('/reader/dashboard/articles')
+          break
+      }
+    }
+  }
+
+  useEffect(() => {
+    async function loadArticle() {
+      if (!id) {
+        setError("No article ID provided")
+        setIsLoading(false)
+        return
+      }
+
+      try {
+        setIsLoading(true)
+        setError(null)
+        const articleData = await getArticleById(parseInt(id))
+        
+        if (!articleData) {
+          setError("Article not found")
+        } else {
+          setArticle(articleData)
+        }
+      } catch (err) {
+        console.error("Failed to load article:", err)
+        setError("Failed to load article")
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    loadArticle()
+  }, [id, fromSource])
+
+  if (isLoading) {
+    return (
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="animate-pulse space-y-6">
+          <div className="h-8 bg-gray-200 rounded w-1/4"></div>
+          <div className="h-12 bg-gray-200 rounded w-3/4"></div>
+          <div className="h-64 bg-gray-200 rounded"></div>
+          <div className="space-y-3">
+            <div className="h-4 bg-gray-200 rounded"></div>
+            <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+            <div className="h-4 bg-gray-200 rounded w-4/6"></div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (error || !article) {
+    return (
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-center py-12">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Article Not Found</h1>
+          <p className="text-gray-600 mb-6">{error || "The requested article could not be found."}</p>
+          <Button onClick={handleBack}>
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Go Back
+          </Button>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -17,49 +109,49 @@ export default function ArticleDetailPage() {
       </div>
 
       {/* Back Button */}
-      <Link to="/reader/dashboard/articles">
-        <Button variant="ghost" className="mb-6 -ml-2">
-          <ArrowLeft className="h-4 w-4 mr-2" />
-          Back to Articles
-        </Button>
-      </Link>
+      <Button variant="ghost" className="mb-6 -ml-2" onClick={handleBack}>
+        <ArrowLeft className="h-4 w-4 mr-2" />
+        Back
+      </Button>
 
       {/* Article Header */}
       <div className="mb-6">
         <div className="flex flex-wrap items-center gap-3 mb-4 text-sm text-gray-600">
-          <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-100">Infectious Disease</Badge>
+          <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-100">{article.category}</Badge>
           <span className="flex items-center gap-1">
             <Globe className="h-4 w-4" />
-            English
+            {article.language}
           </span>
           <span className="flex items-center gap-1">
-            <Clock className="h-4 w-4" />8 min read
+            <Clock className="h-4 w-4" />
+            {article.readTime}
           </span>
           <span className="flex items-center gap-1">
             <Calendar className="h-4 w-4" />
-            2025-10-18
+            {article.publishedAt}
           </span>
           <span className="flex items-center gap-1">
             <Eye className="h-4 w-4" />
-            12,132 views
+            {article.views}
           </span>
         </div>
 
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Understanding Malaria Prevention in Rural Communities</h1>
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">{article.title}</h1>
 
         <p className="text-lg text-gray-600 mb-6">
-          A comprehensive guide to preventing malaria in rural African communities, including proven strategies and
-          community-based interventions.
+          {article.description}
         </p>
 
         <div className="flex items-center justify-between mb-6">
           <div>
-            <p className="font-semibold text-gray-900">Dr. Amina Yakubu</p>
+            <p className="font-semibold text-gray-900">{article.author}</p>
             <p className="text-sm text-gray-600 flex items-center gap-1">
-              WHO Africa
-              <Badge variant="secondary" className="ml-2 text-xs">
-                Verified
-              </Badge>
+              {article.location}
+              {article.verified && (
+                <Badge variant="secondary" className="ml-2 text-xs">
+                  Verified
+                </Badge>
+              )}
             </p>
           </div>
           <div className="flex gap-2">
@@ -75,70 +167,41 @@ export default function ArticleDetailPage() {
 
       {/* Featured Image */}
       <div className="mb-8 rounded-lg overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800" alt="Article featured image" className="w-full h-auto" />
+        <img 
+          src={article.image} 
+          alt={article.title} 
+          className="w-full h-auto"
+          onError={(e) => {
+            // Fallback to placeholder if image fails to load
+            const target = e.target as HTMLImageElement
+            target.src = "/placeholder-article.jpg"
+          }}
+        />
       </div>
 
       {/* Audio Player */}
-      <Card className="mb-8 bg-blue-50 border-blue-200">
-        <CardContent className="p-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Button size="icon" className="bg-blue-600 hover:bg-blue-700">
-                <Play className="h-4 w-4" />
-              </Button>
-              <span className="text-sm font-medium text-blue-900">Listen to this article</span>
+      {article.hasAudio && (
+        <Card className="mb-8 bg-blue-50 border-blue-200">
+          <CardContent className="p-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <Button size="icon" className="bg-blue-600 hover:bg-blue-700">
+                  <Play className="h-4 w-4" />
+                </Button>
+                <span className="text-sm font-medium text-blue-900">Listen to this article</span>
+              </div>
+              <span className="text-sm text-blue-700">{article.readTime}</span>
             </div>
-            <span className="text-sm text-blue-700">8:00</span>
-          </div>
-          <div className="mt-3 h-1 bg-blue-200 rounded-full">
-            <div className="h-full w-0 bg-blue-600 rounded-full" />
-          </div>
-        </CardContent>
-      </Card>
+            <div className="mt-3 h-1 bg-blue-200 rounded-full">
+              <div className="h-full w-0 bg-blue-600 rounded-full" />
+            </div>
+          </CardContent>
+        </Card>
+      )}
 
       {/* Article Content */}
       <div className="prose prose-lg max-w-none">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
-        <p className="text-gray-700 mb-6">
-          This comprehensive guide provides essential information on understanding malaria prevention that every person
-          should know. Our experts have verified this content to ensure accuracy and reliability.
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-3">Key Points to Remember</h3>
-        <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-6">
-          <li>Early detection and prevention are crucial for maintaining good health</li>
-          <li>Regular consultation with healthcare professionals is recommended</li>
-          <li>Understanding symptoms helps in seeking timely medical attention</li>
-          <li>Community awareness plays a vital role in public health</li>
-        </ul>
-
-        <p className="text-gray-700 mb-6">Here are evidence-based strategies recommended by health experts:</p>
-
-        <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-6">
-          <li>Maintain a balanced and nutritious diet and exercise regularly to boost your immune system</li>
-          <li>Practice good hygiene and ensure your surroundings clean at all times</li>
-          <li>Avoid risk factors and maintain a healthy lifestyle</li>
-          <li>Avoid being bitten by mosquitoes by using mosquito repellent creams or spray</li>
-          <li>Use insecticide spray in your living and sleeping areas to kill mosquitoes</li>
-          <li>Reduce vegetation near houses, as mosquitoes can hide there</li>
-        </ul>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-3">When to Seek Medical Help</h3>
-        <p className="text-gray-700 mb-6">
-          It's important to consult with a health professional when you notice any concerning symptoms. Don't hesitate
-          to reach out to medical experts for proper diagnosis and treatment.
-        </p>
-
-        <h3 className="text-xl font-semibold text-gray-900 mb-3">Community Resources</h3>
-        <p className="text-gray-700 mb-6">
-          Many organizations provide free or low-cost health services. Contact local health centers and NGOs for support
-          and information specific to your region.
-        </p>
-
-        <p className="text-gray-700 mb-6">
-          Health education empowers communities to make informed decisions about their wellbeing. Together, we can
-          create a healthier future for Africa and the world! WHO Africa
-        </p>
+        <div dangerouslySetInnerHTML={{ __html: article.content }} />
       </div>
 
       {/* Medical Disclaimer */}
