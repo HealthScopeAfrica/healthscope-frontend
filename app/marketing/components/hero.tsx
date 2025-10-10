@@ -1,5 +1,6 @@
 import Button from "~/components/button";
 import { usePublicAuth } from "./auth/public-auth-provider";
+import { Link } from "react-router";
 
 const Hero = () => {
   const { openSignUp } = usePublicAuth();
@@ -17,9 +18,9 @@ const Hero = () => {
           </p>
         </div>
         <div className="flex flex-wrap gap-3 md:gap-5">
-          <Button className="shrink-0" onClick={openSignUp}>Start Reading</Button>
-          <Button variant="outline" className="shrink-0">Talk to Kulo</Button>
-        </div>
+         <Link to="open/articles"><Button className="shrink-0">Start Reading</Button></Link>
+          {/* <Button variant="outline" className="shrink-0">Talk to Kulo</Button>*/}
+        </div> 
       </div>
       <div className="flex-1 flex justify-center md:justify-end">
         <img

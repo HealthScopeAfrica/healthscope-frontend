@@ -38,7 +38,7 @@ export function ArticleCard({
 
   return (
     <Link 
-      to={`/reader/dashboard/article/${article.id}?from=${source}`}
+      to={`/reader/dashboard/articles/${article.id}?from=${source}`}
       className={`block transition-transform hover:scale-[1.02] ${className}`}
     >
       <Card className="overflow-hidden border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-200">
@@ -47,11 +47,6 @@ export function ArticleCard({
             src={article.image}
             alt={article.title}
             className="w-full h-full object-cover"
-            onError={(e) => {
-              // Fallback to placeholder if image fails to load
-              const target = e.target as HTMLImageElement
-              target.src = "/placeholder-article.jpg"
-            }}
           />
           
           {/* Overlay badges */}

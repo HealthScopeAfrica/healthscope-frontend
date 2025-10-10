@@ -6,13 +6,13 @@
 import { useState, useEffect } from "react"
 import { TrendingUp, Star } from "lucide-react"
 import { ArticleList } from "~/reader/components/shared/article-card"
-import { getFeaturedArticles, type FeaturedArticle } from "~/reader/data/articles"
+import { getFeaturedArticles, type Article } from "~/reader/data/articles"
 
 /**
  * Featured Articles Page Component
  */
 export default function FeaturedArticlesPage() {
-  const [featuredArticles, setFeaturedArticles] = useState<FeaturedArticle[]>([])
+  const [featuredArticles, setFeaturedArticles] = useState<Article[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
   // Load featured articles

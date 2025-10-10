@@ -19,14 +19,12 @@ export interface Article {
   hasAudio: boolean
   image: string
   publishedAt: string
-  trending?: boolean
-  recommended?: boolean
+  featured?: boolean    // Flag for featured articles
+  trending?: boolean    // Flag for trending articles
+  recommended?: boolean // Flag for recommended articles
 }
 
-export interface FeaturedArticle extends Article {
-  trending: boolean
-  featured: true
-}
+// Remove the separate FeaturedArticle interface - not needed anymore
 
 /**
  * Mock data for regular articles
@@ -68,8 +66,10 @@ export const mockArticles: Article[] = [
     language: "EN",
     verified: true,
     hasAudio: true,
-    image: "/doctor-patient-consultation.png",
+    image: "https://images.unsplash.com/photo-1707386821500-09f8a666706b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTJ8fE1hbGFyaWElMjBzaWNrbmVzc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600",
     publishedAt: "2024-10-08",
+    trending: true,      // This article is trending
+    recommended: true,   // This article is recommended
   },
   {
     id: 2,
@@ -108,7 +108,7 @@ export const mockArticles: Article[] = [
     language: "EN",
     verified: true,
     hasAudio: true,
-    image: "/healthy-food-nutrition.png",
+    image: "https://images.unsplash.com/photo-1704270027011-c532d6f1fba3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fE51dHJpdGlvbiUyMGZvciUyMGdyb3dpbmclMjBjaGlsZHJlbiUyMGluJTIwQWZyaWNhfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
     publishedAt: "2024-10-07",
     recommended: true,
   },
@@ -148,8 +148,9 @@ export const mockArticles: Article[] = [
     language: "EN",
     verified: true,
     hasAudio: false,
-    image: "/mental-health-wellness.png",
+    image: "https://images.unsplash.com/photo-1683119510482-be8f631d8353?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470",
     publishedAt: "2024-10-06",
+    recommended: true,   // Mental health is recommended content
   },
   {
     id: 4,
@@ -194,7 +195,7 @@ export const mockArticles: Article[] = [
     language: "EN",
     verified: true,
     hasAudio: true,
-    image: "/prenatal-care-pregnancy.jpg",
+    image: "https://plus.unsplash.com/premium_photo-1726750850117-6eeb0dcedd6e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1437",
     publishedAt: "2024-10-05",
   },
   {
@@ -241,7 +242,7 @@ export const mockArticles: Article[] = [
     language: "Kiswahili",
     verified: true,
     hasAudio: true,
-    image: "/first-aid-emergency.jpg",
+    image: "https://images.unsplash.com/photo-1584739555405-37e477519d5e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470",
     publishedAt: "2024-10-04",
   },
   {
@@ -286,7 +287,7 @@ export const mockArticles: Article[] = [
     language: "EN",
     verified: true,
     hasAudio: true,
-    image: "/exercise-cardiovascular-health.jpg",
+    image: "https://plus.unsplash.com/premium_photo-1664910952496-b8cf8780ee7e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1471",
     publishedAt: "2024-10-03",
   },
 ]
@@ -295,7 +296,7 @@ export const mockArticles: Article[] = [
  * Mock data for featured articles
  * TODO: Replace with API call to GET /api/articles/featured
  */
-export const mockFeaturedArticles: FeaturedArticle[] = [
+export const mockFeaturedArticles: Article[] = [
   {
     id: 101,
     category: "General Health",
@@ -334,7 +335,7 @@ export const mockFeaturedArticles: FeaturedArticle[] = [
     language: "EN",
     verified: true,
     hasAudio: true,
-    image: "/doctor-consultation.png",
+    image: "https://plus.unsplash.com/premium_photo-1723107368358-1cf57017d5a4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1632",
     publishedAt: "2024-10-09",
     trending: true,
     featured: true,
@@ -382,7 +383,7 @@ export const mockFeaturedArticles: FeaturedArticle[] = [
     language: "EN",
     verified: true,
     hasAudio: true,
-    image: "/mental-health-support.png",
+    image: "https://plus.unsplash.com/premium_photo-1741192231027-d3f015577102?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470",
     publishedAt: "2024-10-08",
     trending: false,
     featured: true,
@@ -434,7 +435,7 @@ export const mockFeaturedArticles: FeaturedArticle[] = [
     language: "EN",
     verified: true,
     hasAudio: true,
-    image: "/pregnancy-nutrition.png",
+    image: "https://images.unsplash.com/photo-1493894473891-10fc1e5dbd22?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80",
     publishedAt: "2024-10-07",
     trending: true,
     featured: true,
@@ -460,10 +461,32 @@ export async function getArticles(): Promise<Article[]> {
  * Fetch featured articles
  * TODO: Replace with actual API call
  */
-export async function getFeaturedArticles(): Promise<FeaturedArticle[]> {
+export async function getFeaturedArticles(): Promise<Article[]> {
   // Simulate API delay
   await new Promise(resolve => setTimeout(resolve, 500))
   return mockFeaturedArticles
+}
+
+/**
+ * Fetch articles by type using flags
+ * TODO: Replace with actual API call with filters
+ */
+export async function getArticlesByType(options: {
+  featured?: boolean
+  trending?: boolean
+  recommended?: boolean
+}): Promise<Article[]> {
+  // Simulate API delay
+  await new Promise(resolve => setTimeout(resolve, 500))
+  
+  const allArticles = [...mockArticles, ...mockFeaturedArticles]
+  
+  return allArticles.filter(article => {
+    if (options.featured !== undefined && article.featured !== options.featured) return false
+    if (options.trending !== undefined && article.trending !== options.trending) return false
+    if (options.recommended !== undefined && article.recommended !== options.recommended) return false
+    return true
+  })
 }
 
 /**
