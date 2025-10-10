@@ -107,7 +107,7 @@ export const publicArticlesData: PublicArticle[] = [
     verified: true,
     hasAudio: true,
     publishedAt: "Dec 10, 2024",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=1470",
+    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=1470",
     recommended: true,
     content: `
       <p>Proper nutrition during childhood is fundamental for healthy growth, development, and long-term health outcomes. In Sub-Saharan Africa, addressing child malnutrition remains a critical public health priority.</p>
