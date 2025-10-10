@@ -8,12 +8,19 @@ export default [
     route("about-us", "marketing/about-us.tsx"),
   ]),
 
-
-   // Public pages with public layout
+  // Auth pages with auth layout
   layout("layouts/auth-layout.tsx", [
     route("partner/auth/login", "partner/auth/login.tsx"),
   ]),
 
-  //complete account onboarding
+  // Reader dashboard routes
+  layout("layouts/reader-dashboard-layout.tsx", [
+    route("reader/dashboard", "reader/components/dashboard/featured.tsx"),
+    route("reader/dashboard/articles", "reader/components/pages/articles-list.tsx"),
+    route("reader/dashboard/articles/:id", "reader/components/pages/article-detail.tsx"),
+    route("reader/dashboard/featured", "reader/components/pages/featured-articles.tsx"),
+  ]),
+
+  // Complete account onboarding
   route("onboarding", "reader/onboarding.tsx"),
 ] satisfies RouteConfig;

@@ -58,7 +58,7 @@ export function HealthTopicsStep({ onContinue, onPrevious, onSkip }: HealthTopic
       </div>
 
       <div className="flex flex-col sm:flex-row gap-3 sm:justify-between sm:items-center">
-        <Button variant="outline" onClick={onPrevious} className="order-1 sm:order-none h-10 w-full sm:w-auto">
+        <Button variant="grayGhost" onClick={onPrevious} className="order-1 sm:order-none h-10 w-full sm:w-auto">
           Previous
         </Button>
         <Button variant="ghost" onClick={onSkip} className="order-3 sm:order-none w-full sm:w-auto h-10">

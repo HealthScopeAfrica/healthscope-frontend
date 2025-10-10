@@ -8,7 +8,7 @@ import {
 import Button from "./button";
 import { useState } from "react";
 import { LuX } from "react-icons/lu";
-import { href, Link } from "react-router";
+import { Link } from "react-router";
 import { usePublicAuth } from "~/marketing/components/auth/public-auth-provider";
 
 const links = [
