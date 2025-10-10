@@ -1,4 +1,4 @@
-import { ArrowLeft, Bookmark, Share2, Play, Globe, Clock, Calendar, Eye } from "lucide-react"
+import { ArrowLeft, Bookmark, Share2, Play, Globe, Clock, Calendar, Eye, CheckCircle } from "lucide-react"
 import { Button } from "~/components/ui/button"
 import { Badge } from "~/components/ui/badge"
 import { Card, CardContent } from "~/components/ui/card"
@@ -117,7 +117,7 @@ export default function ArticleDetailPage() {
       {/* Article Header */}
       <div className="mb-6">
         <div className="flex flex-wrap items-center gap-3 mb-4 text-sm text-gray-600">
-          <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-100">{article.category}</Badge>
+          <Badge className="bg-[#EDF2FD] text-blue-400 hover:bg-blue-100">{article.category}</Badge>
           <span className="flex items-center gap-1">
             <Globe className="h-4 w-4" />
             {article.language}
@@ -148,10 +148,13 @@ export default function ArticleDetailPage() {
             <p className="text-sm text-gray-600 flex items-center gap-1">
               {article.location}
               {article.verified && (
-                <Badge variant="secondary" className="ml-2 text-xs">
-                  Verified
-                </Badge>
-              )}
+                        <div className="flex items-center gap-1">
+                          <CheckCircle className="w-3 h-3 text-green-500" />
+                          <span className="text-xs text-[#32A682] font-medium">
+                            Verified
+                          </span>
+                        </div>
+                      )}
             </p>
           </div>
           <div className="flex gap-2">
@@ -195,8 +198,11 @@ export default function ArticleDetailPage() {
       )}
 
       {/* Article Content */}
-      <div className="prose prose-lg max-w-none">
-        <div dangerouslySetInnerHTML={{ __html: article.content }} />
+      <div className="max-w-4xl mx-auto">
+        <div 
+          className="article-content text-justify leading-7 space-y-4"
+          dangerouslySetInnerHTML={{ __html: article.content }} 
+        />
       </div>
 
       {/* Medical Disclaimer */}

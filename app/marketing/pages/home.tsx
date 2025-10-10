@@ -1,4 +1,4 @@
-import type { Route } from "./+types/home";
+import type { Route } from "../+types/home";
 import Hero from "~/marketing/components/hero";
 import { PiUsers, PiWarning } from "react-icons/pi";
 import { LuCircleCheckBig } from "react-icons/lu";
