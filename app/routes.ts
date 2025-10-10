@@ -15,7 +15,7 @@ export default [
 
   // Reader dashboard routes
   layout("layouts/reader-dashboard-layout.tsx", [
-    route("reader/dashboard", "reader/components/dashboard/featured.tsx"),
+    route("reader/dashboard", "reader/dashboard.tsx"),
     route("reader/dashboard/articles", "reader/components/pages/articles-list.tsx"),
     route("reader/dashboard/articles/:id", "reader/components/pages/article-detail.tsx"),
     route("reader/dashboard/featured", "reader/components/pages/featured-articles.tsx"),

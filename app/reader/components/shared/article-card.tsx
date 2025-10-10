@@ -47,11 +47,6 @@ export function ArticleCard({
             src={article.image}
             alt={article.title}
             className="w-full h-full object-cover"
-            onError={(e) => {
-              // Fallback to placeholder if image fails to load
-              const target = e.target as HTMLImageElement
-              target.src = "/placeholder-article.jpg"
-            }}
           />
           
           {/* Overlay badges */}

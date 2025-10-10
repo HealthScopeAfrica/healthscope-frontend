@@ -20,7 +20,7 @@ export default function ArticlesPage() {
       language: "EN",
       verified: true,
       hasAudio: true,
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
+      image: "https://images.unsplash.com/photo-1707386821500-09f8a666706b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1437",
       recommended: false,
     },
     {
@@ -36,7 +36,7 @@ export default function ArticlesPage() {
       language: "EN",
       verified: true,
       hasAudio: true,
-      image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400",
+      image: "https://images.unsplash.com/photo-1704270027011-c532d6f1fba3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fE51dHJpdGlvbiUyMGZvciUyMGdyb3dpbmclMjBjaGlsZHJlbiUyMGluJTIwQWZyaWNhfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
       recommended: true,
     },
     {
@@ -51,7 +51,7 @@ export default function ArticlesPage() {
       language: "EN",
       verified: true,
       hasAudio: false,
-      image: "https://images.unsplash.com/photo-1527689368864-3a821dbccc34?w=400",
+      image: "https://images.unsplash.com/photo-1683119510482-be8f631d8353?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470",
       recommended: false,
     },
     {
@@ -66,7 +66,7 @@ export default function ArticlesPage() {
       language: "EN",
       verified: true,
       hasAudio: true,
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+      image: "https://plus.unsplash.com/premium_photo-1726750850117-6eeb0dcedd6e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1437",
       recommended: false,
     },
     {
@@ -81,7 +81,7 @@ export default function ArticlesPage() {
       language: "Kiswahili",
       verified: true,
       hasAudio: true,
-      image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=400",
+      image: "https://images.unsplash.com/photo-1584739555405-37e477519d5e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470",
       recommended: false,
     },
     {
@@ -96,7 +96,7 @@ export default function ArticlesPage() {
       language: "EN",
       verified: true,
       hasAudio: true,
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400",
+      image: "https://plus.unsplash.com/premium_photo-1664910952496-b8cf8780ee7e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1471",
       recommended: false,
     },
   ]
@@ -180,7 +180,7 @@ export default function ArticlesPage() {
                 <CardContent className="p-0">
                   <div className="relative h-48 w-full">
                     <img
-                      src={article.image || "/placeholder.svg"}
+                      src={article.image}
                       alt={article.title}
                       className="w-full h-full object-cover rounded-t-lg"
                     />

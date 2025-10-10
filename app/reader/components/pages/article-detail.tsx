@@ -171,11 +171,6 @@ export default function ArticleDetailPage() {
           src={article.image} 
           alt={article.title} 
           className="w-full h-auto"
-          onError={(e) => {
-            // Fallback to placeholder if image fails to load
-            const target = e.target as HTMLImageElement
-            target.src = "/placeholder-article.jpg"
-          }}
         />
       </div>
 
