@@ -44,7 +44,7 @@ export const defaultProfile = {
   memberSince: "2025",
   dateOfBirth: "1995-06-15",
   bio: "An individual passionate about learning and understanding African health outcomes through evidence-based information.",
-  interests: allHealthInterests,
+  interests: allHealthInterests.slice(0, 3),
 };
 
 export const readingHistory = [
