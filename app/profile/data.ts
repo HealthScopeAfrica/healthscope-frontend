@@ -68,10 +68,80 @@ export const readingHistory = [
     category: "Women's Health",
     readDuration: "18 min",
     readAt: "2 weeks ago",
-  }
+  },
+  
 ];
 
 export type ReadingHistoryItem = (typeof readingHistory)[number];
+
+export const settingsOverview = [
+  {
+    id: "account",
+    title: "Account Settings",
+    description: "Manage your password, security, and account preferences",
+    icon: FiShield,
+  },
+  {
+    id: "notifications",
+    title: "Notifications",
+    description: "Control how and when you receive notifications",
+    icon: FiBell,
+  },
+  {
+    id: "privacy",
+    title: "Privacy & Data",
+    description: "Manage your privacy and data sharing preferences",
+    icon: FiSliders,
+  },
+  {
+    id: "content",
+    title: "Content Preferences",
+    description: "Customize your reading experience and recommendations",
+    icon: FiBookOpen,
+  },
+];
+
+export const quickSettings = [
+  {
+    id: "emailNotifications",
+    label: "Email Notifications",
+    description: "Weekly health newsletter and article updates",
+    enabled: true,
+  },
+  {
+    id: "profileVisibility",
+    label: "Profile Visibility",
+    description: "Make your profile visible to other users",
+    enabled: true,
+  },
+  {
+    id: "dataSharing",
+    label: "Data Sharing",
+    description: "Share anonymized data to improve HealthScope",
+    enabled: false,
+  },
+];
+
+export const helpLinks = [
+  {
+    id: "support",
+    label: "Contact Support",
+    description: "Get help from the HealthScope team",
+    icon: FiHelpCircle,
+  },
+  {
+    id: "privacy",
+    label: "Privacy Policy",
+    description: "Learn how we protect your data",
+    icon: FiShield,
+  },
+  {
+    id: "terms",
+    label: "Terms of Use",
+    description: "Review the terms & conditions",
+    icon: FiFileText,
+  },
+];
 
 export type ProfileData = typeof defaultProfile;
 
