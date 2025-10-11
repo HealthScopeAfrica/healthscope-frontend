@@ -130,7 +130,7 @@ export default function PartnerAuthPage() {
 
           <div className="max-w-xl mx-auto lg:mx-0 relative z-10">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-balance leading-tight">
-              Join a Trusted Partner Network
+              Join Our Partner Network
             </h1>
             <p className="text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed text-balance text-gray-600">
               Partner with HealthScope to amplify expert voices, manage health
