@@ -93,6 +93,7 @@ export const settingsOverview = [
     id: "privacy",
     title: "Privacy & Data",
     description: "Manage your privacy and data sharing preferences",
+    href: "/dashboard/profile/privacy-settings",
     icon: FiSliders,
   },
   {
