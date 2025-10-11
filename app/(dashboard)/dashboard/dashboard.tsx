@@ -10,12 +10,10 @@ export function Dashboard() {
       <DashboardTopBar />
       <main className="container flex flex-col gap-8 py-8">
         <WelcomeSection />
+        <QuickActionsSection />
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-          <div className="flex flex-col gap-8">
-            <QuickActionsSection />
-            <FeaturedArticlesSection />
-          </div>
+          <FeaturedArticlesSection />
           <SidebarHighlights />
         </div>
       </main>
