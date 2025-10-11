@@ -13,6 +13,8 @@ export default [
   // Auth pages with auth layout
   layout("layouts/auth-layout.tsx", [
     route("partner/auth/login", "partner/auth/login.tsx"),
+    route("contributor/auth/login", "contributor/auth/login.tsx"),
+    route("contributor/auth/signup", "contributor/auth/signup.tsx"),
   ]),
 
   // Reader dashboard routes
