@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router";
 import {Button }from "~/components/ui/button";
 import { Label } from "~/components/ui/label";
-
 interface WelcomeStepProps {
   email: string;
   onComplete: (fullName: string) => void;
@@ -60,14 +60,16 @@ export function WelcomeStep({ email, onComplete, onSkip }: WelcomeStepProps) {
       <Button
         onClick={() => onComplete(fullName)}
         disabled={!fullName.trim()}
-        className="w-full h-12 text-base"
+        className="w-full h-12 text-base rounded-full"
       >
         Create Account
       </Button>
-      <br />
-      <Button variant="ghost" onClick={onSkip}>
-        Skip for later
-      </Button>
+      <br /> <br /> 
+      <Link to="/reader/dashboard">
+        <Button variant="ghost" onClick={onSkip}>
+          Skip for later
+        </Button>
+      </Link>
     </div>
   );
 }

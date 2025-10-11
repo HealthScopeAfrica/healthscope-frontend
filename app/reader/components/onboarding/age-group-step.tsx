@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Button } from "~/components/ui/button"
 import { StepIndicator } from "~/components/ui/step-indicator"
-
+import { Link } from "react-router";
 interface AgeGroupStepProps {
   onContinue: (ageGroup: string) => void
   onPrevious: () => void
@@ -51,9 +51,11 @@ export function AgeGroupStep({ onContinue, onPrevious, onSkip }: AgeGroupStepPro
         <Button variant="grayGhost" onClick={onPrevious} className="order-1 sm:order-none h-10 w-full sm:w-auto">
           Previous
         </Button>
+       <Link to="/reader/dashboard">
         <Button variant="ghost" onClick={onSkip} className="order-3 sm:order-none w-full sm:w-auto h-10">
           Skip for later
         </Button>
+       </Link>
         <Button onClick={() => onContinue(selectedAge)} disabled={!selectedAge} className="order-2 sm:order-none h-10 w-full sm:w-auto">
           Continue
         </Button>

@@ -3,7 +3,7 @@ import { Button } from "~/components/ui/button"
 import { Input } from "~/components/ui/input"
 import { Label } from "~/components/ui/label"
 import { StepIndicator } from "~/components/ui/step-indicator"
-
+import { Link } from "react-router"
 interface LocationStepProps {
   onContinue: (location: string) => void
   onPrevious: () => void
@@ -46,6 +46,7 @@ export function LocationStep({ onContinue, onPrevious, onSkip }: LocationStepPro
         <Button variant="ghost" onClick={onSkip} className="order-3 sm:order-none w-full sm:w-auto h-10">
           Skip for later
         </Button>
+      
         <Button onClick={() => onContinue(location)} disabled={!location.trim()} className="order-2 sm:order-none h-10 w-full sm:w-auto">
           Continue
         </Button>

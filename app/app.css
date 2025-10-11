@@ -129,3 +129,10 @@ body {
 .article-content strong {
   @apply font-semibold text-gray-900;
 }
+
+/* Skeleton loading animation */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
