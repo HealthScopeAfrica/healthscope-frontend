@@ -24,7 +24,7 @@ export default function ContributorLogin() {
   };
 
   return (
-    <div className="h-[90vh] flex flex-col-reverse lg:flex-row">
+    <div className=" min-h-screen lg:min-h-[90vh] flex flex-col-reverse lg:flex-row">
       {/* Left Side - Content */}
       <div className="flex-1 bg-gradient-to-br from-blue-50 to-green-50 p-4 sm:p-6 md:p-8 lg:p-12 xl:p-20 flex flex-col justify-center relative overflow-hidden">
         {/* Health-themed background illustration */}
