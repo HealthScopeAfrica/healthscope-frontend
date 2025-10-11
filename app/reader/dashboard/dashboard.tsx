@@ -4,14 +4,14 @@
  */
 
 import { useState, useEffect } from "react";
-import { getFeaturedArticles, type Article } from "~/reader/data/articles";
+import { getFeaturedArticles, type Article } from "~/reader/dashboard/data/articles";
 
 // Import dashboard components
 import { WelcomeSection } from "./components/ui/welcome-section";
 import { QuickActionsSection } from "./components/ui/quick-actions-section";
 import { FeaturedArticlesSection } from "./components/ui/featured-articles-section";
 import { DashboardSidebar } from "./components/ui/dashboard-sidebar";
-import { KuloChatPanel } from "./components/kulo-ai/simple-chat";
+import { KuloChatPanel } from "./kulo-ai/simple-chat";
 
 export default function ReaderDashboard() {
   const [isChatOpen, setIsChatOpen] = useState(false);

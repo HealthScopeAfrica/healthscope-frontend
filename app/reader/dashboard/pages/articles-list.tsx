@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
-import { ArticleFilters } from "~/reader/components/ui/article-filters";
-import { ArticleGrid } from "~/reader/components/ui/article-grid";
-import type { Article } from "~/reader/components/ui/article-card";
+import { ArticleFilters } from "~/reader/dashboard/components/ui/article-filters";
+import { ArticleGrid } from "~/reader/dashboard/components/ui/article-grid";
+import type { Article } from "~/reader/dashboard/components/ui/article-card";
 
 export default function ArticlesPage() {
   // State for search and filters

@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useSearchParams } from "react-router"
 import { OnboardingSkeleton } from "~/components/ui/skeleton"
-import { WelcomeStep } from "./components/onboarding/welcome-step"
-import { HealthTopicsStep } from "./components/onboarding/health-topics-step"
-import { AgeGroupStep } from "./components/onboarding/age-group-step"
-import { LocationStep } from "./components/onboarding/location-step"
+import { WelcomeStep } from "./components/welcome-step"
+import { HealthTopicsStep } from "./components/health-topics-step"
+import { AgeGroupStep } from "./components/age-group-step"
+import { LocationStep } from "./components/location-step"
 
 type OnboardingStep = "welcome" | "health-topics" | "age-group" | "location" | "complete"
 

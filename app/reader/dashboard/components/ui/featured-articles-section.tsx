@@ -6,7 +6,7 @@
 import { Link } from "react-router";
 import { TrendingUp, Clock } from "lucide-react";
 import { Badge } from "~/components/ui/badge";
-import { type Article } from "~/reader/data/articles";
+import { type Article } from "~/reader/dashboard/data/articles";
 
 interface FeaturedArticlesSectionProps {
   articles: Article[];

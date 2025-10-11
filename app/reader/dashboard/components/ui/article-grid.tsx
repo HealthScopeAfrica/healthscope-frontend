@@ -1,4 +1,4 @@
-import { ArticleCard, type Article } from "~/reader/components/ui/article-card";
+import { ArticleCard, type Article } from "~/reader/dashboard/components/ui/article-card";
 
 interface ArticleGridProps {
   articles: Article[];
