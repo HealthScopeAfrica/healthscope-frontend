@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router";
 import { helpLinks, quickSettings, settingsOverview } from "../data";
-import { FiCheckSquare, FiSquare } from "react-icons/fi";
+import { Switch } from "~/components/ui/switch";
+import { cn } from "~/lib/utils";
 
 export function SettingsContent() {
   const [toggles, setToggles] = useState(() =>
@@ -10,8 +12,8 @@ export function SettingsContent() {
     }, {})
   );
 
-  const handleToggle = (id: string) => {
-    setToggles((prev) => ({ ...prev, [id]: !prev[id] }));
+  const handleToggle = (id: string, value: boolean) => {
+    setToggles((prev) => ({ ...prev, [id]: value }));
   };
 
   return (
@@ -20,23 +22,35 @@ export function SettingsContent() {
         <h3 className="text-xl font-semibold text-text-strong">
           Settings Overview
         </h3>
-        <div className="mt-4 xl:mt-6 grid gap-4 sm:grid-cols-2">
-          {settingsOverview.map(({ id, title, description, icon: Icon }) => (
-            <article
-              key={id}
-              className="flex gap-3 rounded-xl border border-[#F0F1F5] bg-white px-4 py-3 shadow-[0_4px_16px_rgba(15,20,27,0.04)]"
-            >
-              <span className="flex size-10 items-center justify-center rounded-full bg-blue-50 text-blue-500">
-                <Icon className="size-5" />
-              </span>
-              <div className="flex flex-col gap-1">
-                <h4 className="text-base font-semibold text-text-strong">
-                  {title}
-                </h4>
-                <p className="text-sm text-gray-600">{description}</p>
-              </div>
-            </article>
-          ))}
+        <div className="mt-4 grid gap-4 xl:mt-6 sm:grid-cols-2">
+          {settingsOverview.map(({ id, title, description, icon: Icon, href }) => {
+            const className =
+              "flex h-full gap-3 rounded-xl border border-[#F0F1F5] bg-white px-4 py-3 shadow-[0_4px_16px_rgba(15,20,27,0.04)] transition hover:border-[#D5D5D5] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4C7DEA]/30";
+
+            const content = (
+              <>
+                <span className="flex size-10 items-center justify-center rounded-full bg-blue-50 text-blue-500">
+                  <Icon className="size-5" />
+                </span>
+                <div className="flex flex-col gap-1">
+                  <h4 className="text-base font-semibold text-text-strong">
+                    {title}
+                  </h4>
+                  <p className="text-sm text-gray-600">{description}</p>
+                </div>
+              </>
+            );
+
+            return href ? (
+              <Link key={id} to={href} className={cn(className, "items-start")}>
+                {content}
+              </Link>
+            ) : (
+              <article key={id} className={cn(className, "items-start")}>
+                {content}
+              </article>
+            );
+          })}
         </div>
       </section>
 
@@ -59,18 +73,11 @@ export function SettingsContent() {
                   </span>
                   <span className="text-sm text-gray-600">{description}</span>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => handleToggle(id)}
-                  aria-pressed={enabled}
-                  className="text-blue-500 transition hover:text-blue-700"
-                >
-                  {enabled ? (
-                    <FiCheckSquare className="size-6" />
-                  ) : (
-                    <FiSquare className="size-6" />
-                  )}
-                </button>
+                <Switch
+                  checked={enabled}
+                  onCheckedChange={(checked) => handleToggle(id, checked)}
+                  aria-label={label}
+                />
               </li>
             );
           })}
