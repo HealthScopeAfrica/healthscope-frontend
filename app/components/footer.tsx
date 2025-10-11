@@ -7,15 +7,13 @@ const Footer = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   return (
     <footer className="w-full flex flex-col bg-green-50 ">
-      <div className="container flex flex-col md:flex-row py-10 gap-4 w-full">
-        <div className="flex py-2 gap-10 flex-col w-full max-w-[668px]">
-          <h2 className="text-2xl md:text-5xl font-semibold leading-[100%] -tracking-[4%]">
-            Healthscope
-          </h2>
+      <div className="container flex flex-col md:flex-row py-4 md:py-10 gap-4 w-full">
+        <div className="flex py-2 gap-4 md:gap-10 flex-col w-full max-w-[668px]">
+          <h2 className="text-3xl md:text-5xl font-semibold">Healthscope</h2>
           <div className="flex justify-between">
-            <div className="flex flex-col gap-5 w-full">
-              <div className="flex flex-col gap-5">
-                <p className="text-lg md:text-4xl font-medium">
+            <div className="flex flex-col gap-2 md:gap-5 w-full">
+              <div className="flex flex-col gap-2 md:gap-5">
+                <p className="text-xl md:text-4xl font-medium">
                   Subscribe to Healthscope Newsletter
                 </p>
                 <p className="text-sm md:text-xl">
@@ -37,7 +35,7 @@ const Footer = () => {
               Subscribe
             </Button>
           </div>
-          <p className="text-xl leading-[120%] -tracking-[2%] text-black">
+          <p className="text-sm md:text-xl text-black">
             By subscribing, you agree to our{" "}
             <a className="underline" href="#">
               terms of use
@@ -50,7 +48,7 @@ const Footer = () => {
           </p>
         </div>
         <div className="flex justify-center md:justify-end items-center w-full md:w-2/5 mb-2">
-          <div className="grid grid-cols-4 md:grid-cols-2 gap-1 md:gap-4 text-xs md:text-xl font-medium leading-[120%] -tracking-[2%]">
+          <div className="grid grid-cols-4 md:grid-cols-2 gap-1 md:gap-4 text-xs md:text-xl font-medium">
             <Link
               to="#"
               className="leading-[120%] -tracking-[2%] text-center hover:underline"

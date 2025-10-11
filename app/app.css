@@ -89,17 +89,6 @@
     color-scheme: light;
   }
 
-  .dark {
-    color-scheme: dark;
-    --color-surface: #0f141b;
-    --color-surface-muted: #f9fafb;
-    --color-surface-strong: var(--color-white);
-    --color-border: rgba(255, 255, 255, 0.08);
-    --color-border-strong: rgba(255, 255, 255, 0.18);
-    --color-text: rgba(255, 255, 255, 0.94);
-    --color-text-muted: rgba(255, 255, 255, 0.65);
-  }
-
   .container {
     @apply mx-auto w-full max-w-[90rem] px-4 xl:px-[100px]
   }
@@ -107,5 +96,39 @@
 
 html,
 body {
-  @apply bg-surface-muted text-text;
+  @apply bg-surface text-text;
+}
+
+/* Article Content Styles */
+.article-content h2 {
+  @apply text-2xl font-bold text-gray-900 mt-8 mb-4 first:mt-0;
+}
+
+.article-content h3 {
+  @apply text-lg font-semibold text-gray-800 mt-5 mb-2;
+}
+
+.article-content p {
+  @apply text-gray-700 mb-4 leading-7;
+}
+
+.article-content ul,
+.article-content ol {
+  @apply mb-4 pl-6;
+}
+
+.article-content ul {
+  @apply list-disc;
+}
+
+.article-content ol {
+  @apply list-decimal;
+}
+
+.article-content li {
+  @apply mb-2 text-gray-700;
+}
+
+.article-content strong {
+  @apply font-semibold text-gray-900;
 }
