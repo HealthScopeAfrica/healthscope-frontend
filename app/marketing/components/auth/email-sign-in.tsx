@@ -1,5 +1,5 @@
 import * as React from "react"
-
+import { Link } from "react-router";
 interface EmailSignInProps {
   onBack: () => void
 }
@@ -49,12 +49,13 @@ export function EmailSignIn({ onBack }: EmailSignInProps) {
           />
         </div>
 
+       <Link to="/reader/dashboard">
         <button
           type="submit"
           className="w-full bg-blue-600 text-white py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition-colors"
         >
           Continue
-        </button>
+        </button></Link>
       </form>
 
       <button onClick={onBack} className="mt-8 text-base text-gray-700 hover:underline">

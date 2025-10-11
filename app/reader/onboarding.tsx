@@ -51,8 +51,8 @@ export default function OnboardingPage() {
     // Here you would typically save the user data to your backend
     console.log("[v0] User onboarding complete:", { ...userData, location })
     setTimeout(() => {
-      navigate("/")
-    }, 1500)
+      navigate("/reader/dashboard")
+    }, 1600)
   }
 
   // Previous step navigation

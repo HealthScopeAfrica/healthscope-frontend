@@ -115,10 +115,12 @@ export default function ReaderDashboardLayout() {
                     <span>Settings</span>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
+                 <Link to="/">
                   <DropdownMenuItem>
                     <LogOut className="mr-2 h-4 w-4 text-red-500" />
                     <span className=" text-red-500">Log out</span>
                   </DropdownMenuItem>
+                 </Link>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
