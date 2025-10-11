@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "~/components/ui/button";
+import Button from "~/components/button";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { Eye, EyeOff } from "lucide-react";
@@ -65,8 +65,7 @@ export default function LoginForm({ formData, onInputChange, onSubmit }: LoginFo
 
       <Button
         type="submit"
-        size="lg"
-        className="w-full bg-blue-600 hover:bg-blue-700 text-white h-10 sm:h-12 text-sm sm:text-base"
+        className="w-full"
       >
         Log in
       </Button>

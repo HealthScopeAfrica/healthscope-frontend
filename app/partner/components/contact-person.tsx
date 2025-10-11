@@ -1,7 +1,7 @@
 import { Label } from "~/components/ui/label";
 import { Input } from "~/components/ui/input";
 import { Tooltip, TooltipContent, TooltipTrigger } from "~/components/ui/tooltip";
-import { Info } from "lucide-react";
+import { FcInfo } from "react-icons/fc";
 
 interface ContactPersonProps {
   formData: {
@@ -20,9 +20,7 @@ export default function ContactPerson({ formData, onInputChange }: ContactPerson
         <h3 className="text-lg sm:text-xl font-semibold">Contact Person</h3>
         <Tooltip>
           <TooltipTrigger asChild>
-            <button type="button" className="text-gray-500 hover:text-gray-700">
-              <Info className="h-4 w-4" />
-            </button>
+            <FcInfo className="w-4.5 h-4.5" />
           </TooltipTrigger>
           <TooltipContent>
             <p>Who should we reach out to regarding this partnership?</p>

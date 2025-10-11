@@ -11,7 +11,7 @@ const Hero = () => {
           <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-[56px] font-medium leading-[110%] -tracking-[4%] max-w-none md:max-w-[575px]">
             From quick answers to deep insights
           </h1>
-          <p className="text-base md:text-md lg:text-lg xl:text-[22px] leading-[120%] tracking-[-2%] text-gray-600 max-w-none md:max-w-[540px]">
+          <p className="text-base sm:text-lg leading-[120%] tracking-[-2%] text-gray-600 max-w-none md:max-w-[540px]">
             HealthScope is Africa's first experts-driven health content
             Platform, designed to give you trusted information anytime,
             anywhere.

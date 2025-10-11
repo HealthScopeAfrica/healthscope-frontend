@@ -2,7 +2,7 @@ import { Label } from "~/components/ui/label";
 import { Input } from "~/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "~/components/ui/select";
 import { Tooltip, TooltipContent, TooltipTrigger } from "~/components/ui/tooltip";
-import { Info } from "lucide-react";
+import { FcInfo } from "react-icons/fc";
 
 const organizationTypes = ["NGO", "Foundation", "Government", "Association", "Research Institute", "Others"];
 
@@ -37,9 +37,7 @@ export default function OrganizationDetails({ formData, onInputChange }: Organiz
         <h3 className="text-lg sm:text-xl font-semibold">Organization Details</h3>
         <Tooltip>
           <TooltipTrigger asChild>
-            <button type="button" className="text-gray-500 hover:text-gray-700">
-              <Info className="h-4 w-4" />
-            </button>
+            <FcInfo className="w-4.5 h-4.5" />
           </TooltipTrigger>
           <TooltipContent>
             <p>Tell us about your organization&apos;s identity and focus.</p>

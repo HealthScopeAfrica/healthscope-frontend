@@ -51,7 +51,7 @@ export default function Home() {
                     {scope.title}
                   </h3>
                 </div>
-                <p className="text-sm md:text-[20px] lg:text-[22px] xl:text-[22px] text-gray-600 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                   {scope.desc}
                 </p>
               </div>
@@ -67,7 +67,7 @@ export default function Home() {
                   The Solution
                 </h3>
               </div>
-              <p className="text-sm md:text-base lg:text-2xl text-gray-500 leading-relaxed max-w-none lg:max-w-[1111px] mb-4 md:mb-6 lg:mb-8">
+              <p className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-none lg:max-w-[1111px] mb-4 md:mb-6 lg:mb-8">
                 HealthScope bridges this gap. We partner with stakeholders in
                 the health value chain to provide accessible health knowledge,
                 making trusted health information easy to find, easy to

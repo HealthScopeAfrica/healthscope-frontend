@@ -1,8 +1,12 @@
 import { Label } from "~/components/ui/label";
 import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
-import { Tooltip, TooltipContent, TooltipTrigger } from "~/components/ui/tooltip";
-import { Info } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "~/components/ui/tooltip";
+import { FcInfo } from "react-icons/fc";
 
 interface ContactInformationProps {
   formData: {
@@ -14,16 +18,19 @@ interface ContactInformationProps {
   onInputChange: (field: string, value: string) => void;
 }
 
-export default function ContactInformation({ formData, onInputChange }: ContactInformationProps) {
+export default function ContactInformation({
+  formData,
+  onInputChange,
+}: ContactInformationProps) {
   return (
     <div className="space-y-4 sm:space-y-6">
       <div className="flex items-center gap-2 mb-4 sm:mb-6">
-        <h3 className="text-lg sm:text-xl font-semibold">Contact Information</h3>
+        <h3 className="text-lg sm:text-xl font-semibold">
+          Contact Information
+        </h3>
         <Tooltip>
           <TooltipTrigger asChild>
-            <button type="button" className="text-gray-500 hover:text-gray-700">
-              <Info className="h-4 w-4" />
-            </button>
+            <FcInfo className="w-4.5 h-4.5" />
           </TooltipTrigger>
           <TooltipContent>
             <p>Provide your official contact details</p>
@@ -32,7 +39,10 @@ export default function ContactInformation({ formData, onInputChange }: ContactI
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="officialEmail" className="text-sm sm:text-base font-medium">
+        <Label
+          htmlFor="officialEmail"
+          className="text-sm sm:text-base font-medium"
+        >
           Official Email
         </Label>
         <Input
@@ -46,7 +56,10 @@ export default function ContactInformation({ formData, onInputChange }: ContactI
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="phoneNumber" className="text-sm sm:text-base font-medium">
+        <Label
+          htmlFor="phoneNumber"
+          className="text-sm sm:text-base font-medium"
+        >
           Phone Number
         </Label>
         <Input
