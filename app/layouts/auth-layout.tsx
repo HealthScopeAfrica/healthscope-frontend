@@ -2,10 +2,10 @@ import { Outlet, Link } from "react-router";
 
 export default function AuthLayout() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       {/* Header with back to home */}
-      <header className="bg-white border-b">
-        <div className="container flex items-center justify-between py-4">
+<header className="bg-white border-b border-gray-50 shadow-sm drop-shadow-sm">
+        <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between py-4">
           <Link to="/">
             <img src="/images/logo.png" alt="HealthScope" className="h-10" />
           </Link>
@@ -19,7 +19,7 @@ export default function AuthLayout() {
       </header>
       
       {/* Main auth content */}
-      <main className="flex items-center justify-center py-12">
+      <main>
         <Outlet />
       </main>
     </div>

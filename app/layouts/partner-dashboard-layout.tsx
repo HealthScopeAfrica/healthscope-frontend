@@ -16,7 +16,7 @@ export default function PartnerDashboardLayout() {
         </div>
       </nav>
       
-      <main className="min-h-screen bg-gray-50">
+      <main>
         <Outlet />
       </main>
     </>

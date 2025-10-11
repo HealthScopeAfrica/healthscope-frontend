@@ -1,235 +1,252 @@
+"use client"
+
 import { useState } from "react";
-import { X, Eye, EyeOff } from "lucide-react";
 import { Button } from "~/components/ui/button";
-import { Label } from "~/components/ui/label";
-import { Input } from "~/components/ui/input";
-import { useNavigation } from "react-router";
+import { TooltipProvider } from "~/components/ui/tooltip";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import OrganizationDetails from "~/partner/components/organization-details";
+import ContactInformation from "~/partner/components/contact-information";
+import ContactPerson from "~/partner/components/contact-person";
+import LoginForm from "~/partner/components/login-form";
 
-export default function PartnerLogin() {
-	const router = useNavigation()
-	const [showPassword, setShowPassword] = useState(false);
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [isLogin, setIsLogin] = useState(true)
+export default function PartnerAuthPage() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [isOnboarding, setIsOnboarding] = useState(false);
+  const [currentStep, setCurrentStep] = useState(1);
 
-	const handleLogin = (e: React.FormEvent) => {
-		e.preventDefault();
-		// Handle login logic here
-		console.log("[v0] Login attempt with:", { email, password });
-	};
+  const [formData, setFormData] = useState({
+    // Step 1 - Organization Details
+    organizationName: "",
+    type: "",
+    domain: "",
+    country: "",
+    // Step 2 - Contact Information
+    officialEmail: "",
+    phoneNumber: "",
+    website: "",
+    address: "",
+    // Step 3 - Contact Person
+    firstName: "",
+    lastName: "",
+    contactPhone: "",
+    contactEmail: "",
+    // Login
+    loginEmail: "",
+    password: "",
+  });
 
-	return (
-		<div className="min-h-screen bg-[#FAFAFA] flex items-center justify-center p-4">
-			<div className="w-full max-w-6xl bg-white rounded-2xl shadow-sm p-8 md:p-12 lg:p-16 relative">
-				{/* Close button */}
-				<button
-					className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors"
-					aria-label="Close"
-					onClick={() => window.location.replace("/") }
-				>
-					<X className="w-6 h-6" />
-				</button>
+  const handleInputChange = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
 
-				<div className="grid md:grid-cols-2 gap-12 lg:gap-20">
-					{/* Left side - Information */}
-					<div className="space-y-8">
-						<div className="space-y-6">
-							<h2 className="text-xl font-semibold text-gray-900">
-								Main copy (polished):
-							</h2>
-							<p className="text-gray-700 leading-relaxed">
-								Join a growing network of health organizations, NGOs,
-								public health agencies, and professional bodies bringing
-								expert voices to millions.
-							</p>
-							<p className="text-gray-700 leading-relaxed">
-								With HealthScope, you can invite and manage contributors
-								within your network, publish directly, and track the
-								real-world impact of your work. Together, we can amplify
-								trusted voices and combat health misinformation at
-								scale.
-							</p>
-						</div>
+  const handleNext = () => {
+    if (currentStep < 3) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
 
-						<div className="space-y-4">
-							<h3 className="text-xl font-semibold text-gray-900">
-								Supporting line (credibility):
-							</h3>
-							<p className="text-gray-700 leading-relaxed">
-								Inspired by leading global, African, and governmental
-								health organizations.
-							</p>
-						</div>
+  const handleBack = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
 
-						<Button
-							onClick={() => setIsLogin(prev => !prev)}
-							className="bg-[#5B7FFF] hover:bg-[#4A6EEE] text-white px-8 py-6 rounded-full text-base font-medium"
-							size="lg"
-						>
-							Become a Partner
-						</Button>
-					</div>
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Partner onboarding submitted:", {
+      organizationDetails: {
+        name: formData.organizationName,
+        type: formData.type,
+        domain: formData.domain,
+        country: formData.country,
+      },
+      contactInformation: {
+        email: formData.officialEmail,
+        phone: formData.phoneNumber,
+        website: formData.website,
+        address: formData.address,
+      },
+      contactPerson: {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        phone: formData.contactPhone,
+        email: formData.contactEmail,
+      },
+    });
+    // Ready for API integration
+  };
 
-					{/* Right side - Login form */}
-					{isLogin ? (
-						<div className="space-y-6">
-							<h1 className="text-3xl font-bold text-gray-900">
-								Partner Log in
-							</h1>
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Partner login:", {
+      email: formData.loginEmail,
+      password: formData.password,
+    });
+    // Ready for API integration
+  };
 
-							<form onSubmit={handleLogin} className="space-y-6">
-								<div className="space-y-2">
-									<Label
-										htmlFor="email"
-										className="text-base font-medium text-gray-900"
-									>
-										Email/Partner ID
-									</Label>
-									<Input
-										id="email"
-										type="text"
-										placeholder="Enter your email/partner id"
-										value={email}
-										onChange={(e) => setEmail(e.target.value)}
-										className="h-14 px-4 text-base border-gray-300 rounded-lg"
-										required
-									/>
-								</div>
+  const toggleOnboarding = () => {
+    setIsOnboarding(!isOnboarding);
+    setCurrentStep(1);
+  };
 
-								<div className="space-y-2">
-									<Label
-										htmlFor="password"
-										className="text-base font-medium text-gray-900"
-									>
-										Password
-									</Label>
-									<div className="relative">
-										<Input
-											id="password"
-											type={showPassword ? "text" : "password"}
-											placeholder="Enter your password"
-											value={password}
-											onChange={(e) => setPassword(e.target.value)}
-											className="h-14 px-4 pr-12 text-base border-gray-300 rounded-lg"
-											required
-										/>
-										<button
-											type="button"
-											onClick={() => setShowPassword(!showPassword)}
-											className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
-											aria-label={
-												showPassword
-													? "Hide password"
-													: "Show password"
-											}
-										>
-											{showPassword ? (
-												<EyeOff className="w-5 h-5" />
-											) : (
-												<Eye className="w-5 h-5" />
-											)}
-										</button>
-									</div>
-								</div>
+  return (
+    <TooltipProvider>
+      <div className="min-h-screen flex flex-col-reverse lg:flex-row">
+        {/* Left Side - Content */}
+        <div className="flex-1 bg-gradient-to-br from-blue-50 to-green-50 p-4 sm:p-6 md:p-8 lg:p-12 xl:p-20 flex flex-col justify-center relative overflow-hidden">
+          {/* Health-themed background illustration */}
+          <div className="absolute inset-0 opacity-10">
+            <svg className="absolute top-10 left-10 w-20 h-20 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clipRule="evenodd" />
+            </svg>
+            <svg className="absolute bottom-20 right-16 w-16 h-16 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" clipRule="evenodd" />
+            </svg>
+            <svg className="absolute top-1/2 right-1/4 w-12 h-12 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          
+          <div className="max-w-xl mx-auto lg:mx-0 relative z-10">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-balance leading-tight">
+              Join a Trusted Health Network
+            </h1>
+            <p className="text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed text-balance text-gray-600">
+              Partner with HealthScope to amplify expert voices, manage health contributors, and combat misinformation at scale.
+            </p>
 
-								<div>
-									<a
-										href="#"
-										className="text-[#5B7FFF] hover:text-[#4A6EEE] text-base font-medium"
-									>
-										Forgot Password?
-									</a>
-								</div>
+            <div className="space-y-3 mb-8 sm:mb-12">
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span className="text-gray-700">Trusted by leading health organizations</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                <span className="text-gray-700">Manage contributors and track impact</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span className="text-gray-700">Publish directly to millions</span>
+              </div>
+            </div>
 
-								<Button
-									type="submit"
-									className="w-full bg-[#5B7FFF] hover:bg-[#4A6EEE] text-white h-14 rounded-full text-base font-medium"
-								>
-									Log in
-								</Button>
-							</form>
-						</div>
-					) : (
-						<div className="space-y-6">
-							<h1 className="text-3xl font-bold text-gray-900">
-								Partner Sign In
-							</h1>
+            <Button
+              size="lg"
+              onClick={toggleOnboarding}
+              disabled={isOnboarding}
+              className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base lg:text-lg w-full sm:w-auto"
+            >
+              {isOnboarding ? "Registration in Progress..." : "Become a Partner"}
+            </Button>
+          </div>
+        </div>
 
-							<form onSubmit={handleLogin} className="space-y-6">
-								<div className="space-y-2">
-									<Label
-										htmlFor="email"
-										className="text-base font-medium text-gray-900"
-									>
-										Email/Partner ID
-									</Label>
-									<Input
-										id="email"
-										type="text"
-										placeholder="Enter your email/partner id"
-										value={email}
-										onChange={(e) => setEmail(e.target.value)}
-										className="h-14 px-4 text-base border-gray-300 rounded-lg"
-										required
-									/>
-								</div>
+        {/* Right Side - Form */}
+        <div className="flex-1 bg-green-50 p-4 sm:p-6 md:p-8 lg:p-12 xl:p-20 flex flex-col justify-center">
+          <div className="max-w-md w-full mx-auto">
+            {!isOnboarding ? (
+              <LoginForm
+                formData={{ loginEmail: formData.loginEmail, password: formData.password }}
+                onInputChange={handleInputChange}
+                onSubmit={handleLogin}
+              />
+            ) : (
+              // Onboarding Form
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                <div className="flex items-center justify-between mb-6 sm:mb-8">
+                  <h2 className="text-2xl sm:text-3xl font-bold">Partner Onboarding</h2>
+                  <span className="text-base sm:text-lg font-medium text-gray-600">{currentStep}/3</span>
+                </div>
 
-								<div className="space-y-2">
-									<Label
-										htmlFor="password"
-										className="text-base font-medium text-gray-900"
-									>
-										Password
-									</Label>
-									<div className="relative">
-										<Input
-											id="password"
-											type={showPassword ? "text" : "password"}
-											placeholder="Enter your password"
-											value={password}
-											onChange={(e) => setPassword(e.target.value)}
-											className="h-14 px-4 pr-12 text-base border-gray-300 rounded-lg"
-											required
-										/>
-										<button
-											type="button"
-											onClick={() => setShowPassword(!showPassword)}
-											className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
-											aria-label={
-												showPassword
-													? "Hide password"
-													: "Show password"
-											}
-										>
-											{showPassword ? (
-												<EyeOff className="w-5 h-5" />
-											) : (
-												<Eye className="w-5 h-5" />
-											)}
-										</button>
-									</div>
-								</div>
+                {/* Step 1: Organization Details */}
+                {currentStep === 1 && (
+                  <>
+                    <OrganizationDetails
+                      formData={{
+                        organizationName: formData.organizationName,
+                        type: formData.type,
+                        domain: formData.domain,
+                        country: formData.country,
+                      }}
+                      onInputChange={handleInputChange}
+                    />
+                    
+                    {/* Already have account link */}
+                    <div className="pt-4 text-center">
+                      <button
+                        type="button"
+                        onClick={toggleOnboarding}
+                        className="text-blue-600 hover:text-blue-800 hover:underline text-xs sm:text-sm font-medium"
+                      >
+                        Already have an account? Login
+                      </button>
+                    </div>
+                  </>
+                )}
 
-								<div>
-									<a
-										href="#"
-										className="text-[#5B7FFF] hover:text-[#4A6EEE] text-base font-medium"
-									>
-										Forgot Password?
-									</a>
-								</div>
+                {/* Step 2: Contact Information */}
+                {currentStep === 2 && (
+                  <ContactInformation
+                    formData={{
+                      officialEmail: formData.officialEmail,
+                      phoneNumber: formData.phoneNumber,
+                      website: formData.website,
+                      address: formData.address,
+                    }}
+                    onInputChange={handleInputChange}
+                  />
+                )}
 
-								<Button
-									type="submit"
-									className="w-full bg-[#5B7FFF] hover:bg-[#4A6EEE] text-white h-14 rounded-full text-base font-medium"
-								>
-									Log in
-								</Button>
-							</form>
-						</div>
-					)}
-				</div>
-			</div>
-		</div>
-	);
+                {/* Step 3: Contact Person */}
+                {currentStep === 3 && (
+                  <ContactPerson
+                    formData={{
+                      firstName: formData.firstName,
+                      lastName: formData.lastName,
+                      contactPhone: formData.contactPhone,
+                      contactEmail: formData.contactEmail,
+                    }}
+                    onInputChange={handleInputChange}
+                  />
+                )}
+
+                {/* Navigation Buttons */}
+                <div className="flex gap-3 sm:gap-4 pt-4 sm:pt-6">
+                  {currentStep > 1 && (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={handleBack}
+                      className="flex-1 h-10 sm:h-12 bg-transparent border-gray-300 text-gray-700 text-sm sm:text-base"
+                    >
+                      <ArrowLeft className="h-4 w-4 mr-2" />
+                      Back
+                    </Button>
+                  )}
+                  {currentStep < 3 ? (
+                    <Button
+                      type="button"
+                      onClick={handleNext}
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white h-10 sm:h-12 text-sm sm:text-base"
+                    >
+                      Next
+                      <ArrowRight className="h-4 w-4 ml-2" />
+                    </Button>
+                  ) : (
+                    <Button
+                      type="submit"
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white h-10 sm:h-12 text-sm sm:text-base"
+                    >
+                      Complete Onboarding
+                    </Button>
+                  )}
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+    </TooltipProvider>
+  );
 }

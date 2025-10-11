@@ -1,4 +1,3 @@
-import type { Route } from "../+types/home";
 import Hero from "~/marketing/components/hero";
 import { PiUsers, PiWarning } from "react-icons/pi";
 import { LuCircleCheckBig } from "react-icons/lu";
@@ -19,7 +18,7 @@ const scopes = [
   }
 ];
 
-export function meta({}: Route.MetaArgs) {
+export function meta() {
   return generateMeta('home');
 }
 
@@ -27,7 +26,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <div className="py-8 md:py-16 lg:py-16">
+      <div className="py-8 md:py-16 lg:py-18">
         <h2 className="font-semibold text-center text-2xl md:text-3xl lg:text-[40px] mb-8 md:mb-12 lg:mb-16 px-4">
           Why HealthScope Matters
         </h2>
