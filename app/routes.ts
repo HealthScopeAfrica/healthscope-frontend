@@ -5,4 +5,5 @@ export default [
 	route("partner/login", "partner/login/partner.tsx"),
 	route("dashboard", "routes/(dashboard)/dashboard.tsx"),
 	route("dashboard/profile", "routes/(dashboard)/profile.tsx"),
+	route("dashboard/profile/account-settings", "routes/(dashboard)/profile.account-settings.tsx"),
 ] satisfies RouteConfig;
