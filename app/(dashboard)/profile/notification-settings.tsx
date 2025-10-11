@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 import { useState } from "react";
 import { FiArrowLeft, FiCheckSquare, FiSquare } from "react-icons/fi";
 import { Switch } from "~/components/ui/switch";
+import { Save, X } from "lucide-react";
 
 const emailTypeOptions = [
   "New articles in your interests",
@@ -25,11 +26,11 @@ export default function NotificationSettings() {
     push: true,
     sms: false,
   });
-  const [emailTypes, setEmailTypes] = useState(() =>
-    new Set<string>(emailTypeOptions)
+  const [emailTypes, setEmailTypes] = useState(
+    () => new Set<string>(emailTypeOptions)
   );
-  const [pushTypes, setPushTypes] = useState(() =>
-    new Set<string>(pushTypeOptions)
+  const [pushTypes, setPushTypes] = useState(
+    () => new Set<string>(pushTypeOptions)
   );
   const [preferences, setPreferences] = useState({
     sounds: true,
@@ -66,7 +67,11 @@ export default function NotificationSettings() {
             >
               <FiArrowLeft className="size-5" />
             </button>
-            <img src="/images/logo.png" alt="HealthScope" className="h-9 w-auto" />
+            <img
+              src="/images/logo.png"
+              alt="HealthScope"
+              className="h-9 w-auto"
+            />
           </div>
           <span className="text-base font-semibold text-text-strong md:text-lg">
             Notification Settings
@@ -81,7 +86,7 @@ export default function NotificationSettings() {
               <h2 className="text-lg font-semibold text-text-strong md:text-xl">
                 Notification Types
               </h2>
-              <p className="text-sm text-[#6E6E6E]">
+              <p className="text-sm text-gray-600">
                 Choose the channels and content you want to hear about.
               </p>
             </header>
@@ -93,7 +98,7 @@ export default function NotificationSettings() {
                     <span className="text-sm font-semibold text-text-strong">
                       Email Notifications
                     </span>
-                    <span className="text-xs text-[#6E6E6E]">
+                    <span className="text-xs text-gray-600">
                       Receive updates via email
                     </span>
                   </div>
@@ -106,7 +111,7 @@ export default function NotificationSettings() {
                   />
                 </div>
                 <div className="grid gap-2 rounded-xl border border-[#E5E5E5] bg-white p-4">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-[#6E6E6E]">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-gray-600">
                     Email Types
                   </span>
                   <div className="grid gap-2">
@@ -138,7 +143,7 @@ export default function NotificationSettings() {
                     <span className="text-sm font-semibold text-text-strong">
                       Push Notifications
                     </span>
-                    <span className="text-xs text-[#6E6E6E]">
+                    <span className="text-xs text-gray-600">
                       Receive notifications on your device
                     </span>
                   </div>
@@ -151,7 +156,7 @@ export default function NotificationSettings() {
                   />
                 </div>
                 <div className="grid gap-2 rounded-xl border border-[#E5E5E5] bg-white p-4">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-[#6E6E6E]">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-gray-600">
                     Push Notification Types
                   </span>
                   <div className="grid gap-2">
@@ -183,7 +188,7 @@ export default function NotificationSettings() {
                     <span className="text-sm font-semibold text-text-strong">
                       SMS Notifications
                     </span>
-                    <span className="text-xs text-[#6E6E6E]">
+                    <span className="text-xs text-gray-600">
                       Receive critical health alerts via SMS
                     </span>
                   </div>
@@ -204,7 +209,7 @@ export default function NotificationSettings() {
               <h2 className="text-lg font-semibold text-text-strong md:text-xl">
                 Notification Preferences
               </h2>
-              <p className="text-sm text-[#6E6E6E]">
+              <p className="text-sm text-gray-600">
                 Fine tune sounds and delivery windows.
               </p>
             </header>
@@ -214,7 +219,7 @@ export default function NotificationSettings() {
                   <span className="text-sm font-semibold text-text-strong">
                     Notification Sounds
                   </span>
-                  <span className="text-xs text-[#6E6E6E]">
+                  <span className="text-xs text-gray-600">
                     Play a sound for new notifications
                   </span>
                 </div>
@@ -232,7 +237,7 @@ export default function NotificationSettings() {
                   <span className="text-sm font-semibold text-text-strong">
                     Quiet Hours
                   </span>
-                  <span className="text-xs text-[#6E6E6E]">
+                  <span className="text-xs text-gray-600">
                     Pause non-urgent notifications
                   </span>
                 </div>
@@ -250,7 +255,7 @@ export default function NotificationSettings() {
                   <span className="text-sm font-semibold text-text-strong">
                     Urgent Only Mode
                   </span>
-                  <span className="text-xs text-[#6E6E6E]">
+                  <span className="text-xs text-gray-600">
                     Only receive critical health alerts
                   </span>
                 </div>
@@ -269,14 +274,16 @@ export default function NotificationSettings() {
             <button
               type="button"
               onClick={() => navigate(-1)}
-              className="rounded-full border border-[#E5E5E5] px-5 py-2 text-sm font-medium text-[#6E6E6E] transition hover:border-[#C1C1C1] hover:text-[#203562]"
+              className="rounded-full flex items-center gap-2 border border-[#E5E5E5] px-5 py-2.5 bg-white text-sm font-medium text-text-strong transition hover:border-[#C1C1C1] hover:text-[#203562]"
             >
+              <X className="size-5" />
               Cancel
             </button>
             <button
               type="button"
-              className="flex items-center gap-2 rounded-full bg-[#32A682] px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-[#2E9776]"
+              className="flex items-center gap-2 rounded-full bg-green-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#2E9776]"
             >
+              <Save className="size-5" />
               Save Changes
             </button>
           </div>

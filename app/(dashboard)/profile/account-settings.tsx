@@ -5,6 +5,7 @@ import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { Switch } from "~/components/ui/switch";
 import { Button } from "~/components/ui/button";
+import { Save, X } from "lucide-react";
 
 export default function AccountSettings() {
   const navigate = useNavigate();
@@ -72,7 +73,7 @@ export default function AccountSettings() {
               <h2 className="text-lg font-semibold text-text-strong md:text-xl">
                 Change Password
               </h2>
-              <p className="text-sm text-[#6E6E6E]">
+              <p className="text-sm text-gray-600">
                 Update your password to keep your account secure.
               </p>
             </header>
@@ -91,7 +92,7 @@ export default function AccountSettings() {
                   <button
                     type="button"
                     onClick={() => togglePasswordVisibility("current")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6E6E6E] hover:text-[#203562]"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-[#203562]"
                     aria-label={
                       showPassword.current ? "Hide password" : "Show password"
                     }
@@ -118,7 +119,7 @@ export default function AccountSettings() {
                   <button
                     type="button"
                     onClick={() => togglePasswordVisibility("next")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6E6E6E] hover:text-[#203562]"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-[#203562]"
                     aria-label={
                       showPassword.next ? "Hide password" : "Show password"
                     }
@@ -145,7 +146,7 @@ export default function AccountSettings() {
                   <button
                     type="button"
                     onClick={() => togglePasswordVisibility("confirm")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6E6E6E] hover:text-[#203562]"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-[#203562]"
                     aria-label={
                       showPassword.confirm ? "Hide password" : "Show password"
                     }
@@ -169,7 +170,7 @@ export default function AccountSettings() {
                 <h2 className="text-lg font-semibold text-text-strong md:text-xl">
                   Two-Factor Authentication
                 </h2>
-                <p className="text-sm text-[#6E6E6E]">
+                <p className="text-sm text-gray-600">
                   Add an extra layer of security to your account.
                 </p>
               </div>
@@ -188,7 +189,7 @@ export default function AccountSettings() {
               <h2 className="text-lg font-semibold text-text-strong md:text-xl">
                 Notification Preferences
               </h2>
-              <p className="text-sm text-[#6E6E6E]">
+              <p className="text-sm text-gray-600">
                 Choose how you would like to hear from HealthScope.
               </p>
             </header>
@@ -198,7 +199,7 @@ export default function AccountSettings() {
                   <span className="text-sm font-semibold text-text-strong">
                     Email Notifications
                   </span>
-                  <span className="text-xs text-[#6E6E6E]">
+                  <span className="text-xs text-gray-600">
                     Receive updates about new articles and health tips.
                   </span>
                 </div>
@@ -216,7 +217,7 @@ export default function AccountSettings() {
                   <span className="text-sm font-semibold text-text-strong">
                     SMS Notifications
                   </span>
-                  <span className="text-xs text-[#6E6E6E]">
+                  <span className="text-xs text-gray-600">
                     Get urgent health alerts via text message.
                   </span>
                 </div>
@@ -233,7 +234,7 @@ export default function AccountSettings() {
                 <h3 className="text-sm font-semibold text-text-strong">
                   Email Frequency
                 </h3>
-                <ul className="mt-2 space-y-1 text-sm text-[#6E6E6E]">
+                <ul className="mt-2 space-y-1 text-sm text-gray-600">
                   <li>Daily health tips</li>
                   <li>Weekly newsletter</li>
                   <li>New articles in your interests</li>
@@ -248,7 +249,7 @@ export default function AccountSettings() {
               <h2 className="text-lg font-semibold text-text-strong md:text-xl">
                 Privacy Settings
               </h2>
-              <p className="text-sm text-[#6E6E6E]">
+              <p className="text-sm text-gray-600">
                 Control who can see your activity and how your data is used.
               </p>
             </header>
@@ -280,9 +281,7 @@ export default function AccountSettings() {
                     <span className="text-sm font-semibold text-text-strong">
                       {label}
                     </span>
-                    <span className="text-xs text-[#6E6E6E]">
-                      {description}
-                    </span>
+                    <span className="text-xs text-gray-600">{description}</span>
                   </div>
                   <Switch
                     checked={privacy[id as keyof typeof privacy]}
@@ -303,13 +302,18 @@ export default function AccountSettings() {
             <button
               type="button"
               onClick={() => navigate(-1)}
-              className="rounded-full border border-[#E5E5E5] px-5 py-2 text-sm font-medium text-[#6E6E6E] transition hover:border-[#C1C1C1] hover:text-[#203562]"
+              className="rounded-full flex items-center gap-2 border border-[#E5E5E5] px-5 py-2.5 bg-white text-sm font-medium text-text-strong transition hover:border-[#C1C1C1] hover:text-[#203562]"
             >
+              <X className="size-5" />
               Cancel
             </button>
-            <Button className="rounded-full px-6 py-2.5 text-sm font-semibold">
+            <button
+              type="button"
+              className="flex items-center gap-2 rounded-full bg-green-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#2E9776]"
+            >
+              <Save className="size-5" />
               Save Changes
-            </Button>
+            </button>
           </div>
         </div>
       </main>

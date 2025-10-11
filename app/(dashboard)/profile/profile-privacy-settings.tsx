@@ -6,7 +6,6 @@ import {
   FiInfo,
   FiShield,
   FiSquare,
-  FiUserCheck,
 } from "react-icons/fi";
 import { Switch } from "~/components/ui/switch";
 import {
@@ -172,31 +171,33 @@ export default function PrivacySettings() {
                 </div>
               ))}
 
-              <div className="rounded-xl border border-[#F0F1F5] bg-white px-4 py-3">
-                <span className="text-xs font-semibold uppercase tracking-wide text-gray-600">
-                  Visible Information
-                </span>
-                <div className="mt-3 grid gap-2 md:grid-cols-2">
-                  {visibleInfoOptions.map((option) => {
-                    const selected = visibleInfo.has(option);
-                    return (
-                      <button
-                        key={option}
-                        type="button"
-                        onClick={() => toggleInfo(option)}
-                        className="flex items-center gap-3 text-sm text-text-strong"
-                      >
-                        {selected ? (
-                          <FiCheckSquare className="size-5 text-blue-500" />
-                        ) : (
-                          <FiSquare className="size-5 text-[#C1C1C1]" />
-                        )}
-                        <span>{option}</span>
-                      </button>
-                    );
-                  })}
+              {visibility.publicProfile && (
+                <div className="rounded-xl border border-[#F0F1F5] bg-white px-4 py-3">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-gray-600">
+                    Visible Information
+                  </span>
+                  <div className="mt-3 grid gap-2 md:grid-cols-2">
+                    {visibleInfoOptions.map((option) => {
+                      const selected = visibleInfo.has(option);
+                      return (
+                        <button
+                          key={option}
+                          type="button"
+                          onClick={() => toggleInfo(option)}
+                          className="flex items-center gap-3 text-sm text-text-strong"
+                        >
+                          {selected ? (
+                            <FiCheckSquare className="size-5 text-blue-500" />
+                          ) : (
+                            <FiSquare className="size-5 text-[#C1C1C1]" />
+                          )}
+                          <span>{option}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </section>
 
