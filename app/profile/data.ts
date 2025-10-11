@@ -1,11 +1,16 @@
 import type { IconType } from "react-icons";
 import {
+  FiBell,
   FiBookOpen,
   FiCalendar,
+  FiFileText,
   FiHeart,
+  FiHelpCircle,
   FiMail,
   FiPhone,
   FiSettings,
+  FiShield,
+  FiSliders,
   FiUser,
 } from "react-icons/fi";
 
@@ -41,6 +46,32 @@ export const defaultProfile = {
   bio: "An individual passionate about learning and understanding African health outcomes through evidence-based information.",
   interests: allHealthInterests,
 };
+
+export const readingHistory = [
+  {
+    id: "malaria-prevention",
+    title: "Understanding Malaria Prevention in Sub-Saharan Africa",
+    category: "General Health",
+    readDuration: "15 min",
+    readAt: "2 days ago",
+  },
+  {
+    id: "mental-health-awareness",
+    title: "Mental Health Awareness: Breaking the Stigma",
+    category: "Mental Health",
+    readDuration: "12 min",
+    readAt: "1 week ago",
+  },
+  {
+    id: "nutrition-during-pregnancy",
+    title: "Nutrition During Pregnancy: An African Perspective",
+    category: "Women's Health",
+    readDuration: "18 min",
+    readAt: "2 weeks ago",
+  }
+];
+
+export type ReadingHistoryItem = (typeof readingHistory)[number];
 
 export type ProfileData = typeof defaultProfile;
 
