@@ -92,7 +92,7 @@ export default function PartnerAuthPage() {
 
   return (
     <TooltipProvider>
-      <div className="h-[90vh] flex flex-col-reverse lg:flex-row">
+      <div className="min-h-screen lg:min-h-[90vh] flex flex-col-reverse lg:flex-row">
         {/* Left Side - Content */}
         <div className="flex-1 bg-gradient-to-br from-blue-50 to-green-50 p-4 sm:p-6 md:p-8 lg:p-12 xl:p-20 flex flex-col justify-center relative overflow-hidden">
           {/* Health-themed background illustration */}
@@ -130,7 +130,7 @@ export default function PartnerAuthPage() {
 
           <div className="max-w-xl mx-auto lg:mx-0 relative z-10">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-balance leading-tight">
-              Join a Trusted Partner Network
+              Join Our Partner Network
             </h1>
             <p className="text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed text-balance text-gray-600">
               Partner with HealthScope to amplify expert voices, manage health
@@ -144,16 +144,22 @@ export default function PartnerAuthPage() {
                   Trusted by leading health organizations
                 </span>
               </div>
-              <div className="flex items-center gap-3">
+              {/* <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                 <span className="text-gray-700">
                   Manage contributors and track impact
                 </span>
+              </div> */}
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                <span className="text-gray-700">
+                  Invite & manage contributors
+                </span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
                 <span className="text-gray-700">
-                  Publish directly to millions
+                  Generate impact metrics & analytics
                 </span>
               </div>
             </div>

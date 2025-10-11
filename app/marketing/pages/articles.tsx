@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
-import { ArticleFilters } from "~/reader/components/ui/article-filters";
-import { ArticleCard, type Article } from "~/reader/components/ui/article-card";
+import { ArticleFilters } from "~/reader/dashboard/components/ui/article-filters";
+import { ArticleCard, type Article } from "~/reader/dashboard/components/ui/article-card";
 import { usePublicAuth } from "~/marketing/components/auth/public-auth-provider";
 import { publicArticlesData, type PublicArticle } from "~/marketing/data/public-articles";
 

@@ -8,7 +8,7 @@ import { Eye, Volume2, Globe, Clock } from "lucide-react"
 import { Card, CardContent } from "~/components/ui/card"
 import { Badge } from "~/components/ui/badge"
 import { Link } from "react-router"
-import type { Article } from "~/reader/data/articles"
+import type { Article } from "~/reader/dashboard/data/articles"
 
 interface ArticleCardProps {
   article: Article

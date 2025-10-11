@@ -5,8 +5,8 @@
 
 import { useState, useEffect } from "react"
 import { TrendingUp, Star } from "lucide-react"
-import { ArticleList } from "~/reader/components/shared/article-card"
-import { getFeaturedArticles, type Article } from "~/reader/data/articles"
+import { ArticleList } from "~/reader/dashboard/components/shared/article-card"
+import { getFeaturedArticles, type Article } from "~/reader/dashboard/data/articles"
 
 /**
  * Featured Articles Page Component

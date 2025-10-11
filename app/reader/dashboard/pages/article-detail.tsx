@@ -4,7 +4,7 @@ import { Badge } from "~/components/ui/badge"
 import { Card, CardContent } from "~/components/ui/card"
 import { Link, useParams, useSearchParams, useNavigate } from "react-router"
 import { useState, useEffect } from "react"
-import { getArticleById, type Article } from "~/reader/data/articles"
+import { getArticleById, type Article } from "~/reader/dashboard/data/articles"
 
 export default function ArticleDetailPage() {
   const { id } = useParams()
