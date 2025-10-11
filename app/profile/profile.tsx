@@ -4,6 +4,7 @@ import {
   allHealthInterests,
   defaultProfile,
   profileTabs,
+  readingHistory,
   type ProfileData,
 } from "./data";
 import { ProfileHeader } from "./components/profile-header";
@@ -13,6 +14,7 @@ import { ProfileInfoView } from "./components/profile-info-view";
 import { ProfileInfoForm } from "./components/profile-info-form";
 import { HealthInterests } from "./components/health-interests";
 import { Tabs, TabsContent, TabsList } from "~/components/ui/tabs";
+import { ReadingHistory } from "./components/reading-history";
 
 export function Profile() {
   const navigate = useNavigate();
@@ -129,15 +131,7 @@ export function Profile() {
               )}
             </TabsContent>
             <TabsContent value="reading" className="focus-visible:outline-none">
-              <section className="rounded-2xl border border-[#E5E5E5] bg-white p-6 shadow-[0_12px_32px_rgba(15,20,27,0.04)]">
-                <h3 className="text-xl font-semibold text-text-strong">
-                  Reading History
-                </h3>
-                <p className="mt-2 text-sm text-[#6E6E6E]">
-                  Your recently viewed and saved articles will appear here once
-                  available.
-                </p>
-              </section>
+              <ReadingHistory items={readingHistory} />
             </TabsContent>
             <TabsContent
               value="settings"
