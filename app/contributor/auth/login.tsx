@@ -24,7 +24,7 @@ export default function ContributorLogin() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col-reverse lg:flex-row">
+    <div className="h-[90vh] flex flex-col-reverse lg:flex-row">
       {/* Left Side - Content */}
       <div className="flex-1 bg-gradient-to-br from-blue-50 to-green-50 p-4 sm:p-6 md:p-8 lg:p-12 xl:p-20 flex flex-col justify-center relative overflow-hidden">
         {/* Health-themed background illustration */}
@@ -42,7 +42,7 @@ export default function ContributorLogin() {
         
         <div className="max-w-xl mx-auto lg:mx-0 relative z-10">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-balance leading-tight">
-            Share Trusted Health Expertise
+            Share Knowledge. Inspire Change
           </h1>
           <p className="text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed text-balance text-gray-600">
             Amplify your voice across Africa and beyond. Counter misinformation with trusted insights and help shape healthier communities.
