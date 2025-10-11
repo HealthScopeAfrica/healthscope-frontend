@@ -85,6 +85,7 @@ export const settingsOverview = [
   {
     id: "notifications",
     title: "Notifications",
+    href: "/dashboard/profile/notification-settings",
     description: "Control how and when you receive notifications",
     icon: FiBell,
   },
