@@ -107,12 +107,20 @@ export default function ReaderDashboardLayout() {
                   </div>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
+                     <Link to="/reader/dashboard/profile">
                     <User className="mr-2 h-4 w-4" />
+                    </Link>
+                    <Link to="/reader/dashboard/profile">
                     <span>Profile</span>
+                    </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
+                      <Link to="/reader/dashboard/profile/account-settings">
                     <Settings className="mr-2 h-4 w-4" />
+                    </Link>
+                    <Link to="/reader/dashboard/profile/account-settings">
                     <span>Settings</span>
+                    </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                  <Link to="/">

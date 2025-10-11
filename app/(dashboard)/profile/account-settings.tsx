@@ -43,7 +43,7 @@ export default function AccountSettings() {
 
   return (
     <div className="min-h-screen bg-[#FAFAFA]">
-      <header className="border-b border-[#E5E5E5] bg-white">
+      {/* <header className="border-b border-[#E5E5E5] bg-white">
         <div className="container flex items-center justify-between gap-3 py-4 md:py-5">
           <div className="flex items-center gap-3">
             <button
@@ -64,11 +64,21 @@ export default function AccountSettings() {
             Account Settings
           </span>
         </div>
-      </header>
+      </header> */}
 
       <main className="container py-6 md:py-8">
         <div className="mx-auto flex max-w-4xl flex-col gap-6 md:gap-8">
           <section className="rounded-2xl border border-[#E5E5E5] bg-white p-5 shadow-[0_12px_32px_rgba(15,20,27,0.04)] md:p-6">
+            <div className="flex justify-end">
+              <button
+                type="button"
+                onClick={() => navigate(-1)}
+                aria-label="Back"
+                className="flex size-10 items-center justify-center rounded-full border border-[#E5E5E5] hover:border-[#C1C1C1]"
+              >
+                <FiArrowLeft className="size-5" />
+              </button>
+            </div>
             <header className="flex flex-col gap-1">
               <h2 className="text-lg font-semibold text-text-strong md:text-xl">
                 Change Password

@@ -18,7 +18,7 @@ export default function LoginForm({ formData, onInputChange, onSubmit }: LoginFo
 
   return (
     <form onSubmit={onSubmit} className="space-y-4 sm:space-y-6">
-      <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Partner Log in</h2>
+      <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Partner Login</h2>
 
       <div className="space-y-2">
         <Label htmlFor="loginEmail" className="text-sm sm:text-base font-medium">

@@ -82,14 +82,14 @@ export function Profile() {
 
   return (
     <div className="min-h-screen bg-[#FAFAFA]">
-      <ProfileHeader
+      {/* <ProfileHeader
         isEditing={isEditing}
         onEdit={handleEdit}
         onCancel={handleCancel}
         onSave={handleSave}
         onBack={() => navigate("/dashboard")}
         canEdit={activeTab === "profile"}
-      />
+      /> */}
       <main className="container flex flex-col gap-8 py-8">
         <div className="grid gap-8 lg:grid-cols-[320px_minmax(0,1fr)]">
           <ProfileSidebar

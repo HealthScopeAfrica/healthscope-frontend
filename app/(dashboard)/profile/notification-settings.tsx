@@ -56,7 +56,7 @@ export default function NotificationSettings() {
 
   return (
     <div className="min-h-screen bg-[#FAFAFA]">
-      <header className="border-b border-[#E5E5E5] bg-white">
+      {/* <header className="border-b border-[#E5E5E5] bg-white">
         <div className="container flex items-center justify-between gap-3 py-4 md:py-5">
           <div className="flex items-center gap-3">
             <button
@@ -77,15 +77,26 @@ export default function NotificationSettings() {
             Notification Settings
           </span>
         </div>
-      </header>
+      </header> */}
 
       <main className="container py-6 md:py-8">
+         
         <div className="mx-auto flex max-w-4xl flex-col gap-6 md:gap-8">
           <section className="rounded-2xl border border-[#E5E5E5] bg-white p-5 shadow-[0_12px_32px_rgba(15,20,27,0.04)] md:p-6">
-            <header className="flex flex-col gap-1">
+            <header className="flex flex-col gap-1"> 
+              <div className="flex justify-between items-center mb-2">
               <h2 className="text-lg font-semibold text-text-strong md:text-xl">
                 Notification Types
               </h2>
+              <button
+                type="button"
+                onClick={() => navigate(-1)}
+                aria-label="Back"
+                className="flex size-10 items-center justify-center rounded-full border border-[#E5E5E5] hover:border-[#C1C1C1]"
+              >
+                <FiArrowLeft className="size-5" />
+              </button>
+            </div>
               <p className="text-sm text-gray-600">
                 Choose the channels and content you want to hear about.
               </p>
