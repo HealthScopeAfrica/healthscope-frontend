@@ -8,6 +8,8 @@ import type { ProfileData } from "../data";
 interface ProfileInfoFormProps {
   formData: ProfileData;
   onChange: (key: keyof ProfileData, value: string) => void;
+  onSave?: () => void;
+  onCancel?: () => void;
 }
 
 function Field({
@@ -32,7 +34,7 @@ function Field({
   );
 }
 
-export function ProfileInfoForm({ formData, onChange }: ProfileInfoFormProps) {
+export function ProfileInfoForm({ formData, onChange, onSave, onCancel }: ProfileInfoFormProps) {
   const handleInput =
     (key: keyof ProfileData) =>
     (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -115,6 +117,24 @@ export function ProfileInfoForm({ formData, onChange }: ProfileInfoFormProps) {
           rows={4}
           placeholder="Tell us about yourself…"
         />
+      </div>
+      
+      {/* Save/Cancel buttons */}
+      <div className="mt-6 flex items-center justify-start gap-4">
+        <button
+          type="button"
+          onClick={onCancel}
+          className="text-sm font-medium text-[#6E6E6E] hover:text-[#203562]"
+        >
+          Cancel
+        </button>
+        <button
+          type="button"
+          onClick={onSave}
+          className="inline-flex items-center rounded-full bg-[#32A682] px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#2E9776]"
+        >
+          Save Changes
+        </button>
       </div>
     </section>
   );

@@ -82,14 +82,7 @@ export function Profile() {
 
   return (
     <div className="min-h-screen bg-[#FAFAFA]">
-      {/* <ProfileHeader
-        isEditing={isEditing}
-        onEdit={handleEdit}
-        onCancel={handleCancel}
-        onSave={handleSave}
-        onBack={() => navigate("/dashboard")}
-        canEdit={activeTab === "profile"}
-      /> */}
+      {/* <ProfileHeader onBack={() => navigate("/dashboard")} /> */}
       <main className="container flex flex-col gap-8 py-8">
         <div className="grid gap-8 lg:grid-cols-[320px_minmax(0,1fr)]">
           <ProfileSidebar
@@ -113,6 +106,8 @@ export function Profile() {
                   <ProfileInfoForm
                     formData={draft}
                     onChange={handleFormChange}
+                    onSave={handleSave}
+                    onCancel={handleCancel}
                   />
                   <HealthInterests
                     items={allHealthInterests}
@@ -123,7 +118,11 @@ export function Profile() {
                 </>
               ) : (
                 <>
-                  <ProfileInfoView profile={profile} />
+                  <ProfileInfoView 
+                    profile={profile} 
+                    canEdit={activeTab === "profile"}
+                    onEdit={handleEdit}
+                  />
                   <HealthInterests
                     items={allHealthInterests}
                     selected={new Set(profile.interests)}

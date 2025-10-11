@@ -1,7 +1,10 @@
 import type { ProfileData } from "../data";
+import { FiEdit2 } from "react-icons/fi";
 
 interface ProfileInfoViewProps {
   profile: ProfileData;
+  canEdit?: boolean;
+  onEdit?: () => void;
 }
 
 const infoFields: Array<{
@@ -29,7 +32,7 @@ function formatDate(value: string) {
   }).format(date);
 }
 
-export function ProfileInfoView({ profile }: ProfileInfoViewProps) {
+export function ProfileInfoView({ profile, canEdit = false, onEdit }: ProfileInfoViewProps) {
   return (
     <div className="flex flex-col gap-6">
       <section className="rounded-2xl border border-[#E5E5E5] bg-white p-6 shadow-[0_12px_32px_rgba(15,20,27,0.04)]">
@@ -53,6 +56,18 @@ export function ProfileInfoView({ profile }: ProfileInfoViewProps) {
             );
           })}
         </dl>
+        {canEdit && (
+          <div className="mt-8 flex justify-start">
+            <button
+              type="button"
+              onClick={onEdit}
+              className="inline-flex items-center gap-2 rounded-full border border-[#4C7DEA] px-5 py-2 text-sm font-semibold text-[#4C7DEA] hover:border-[#3659A6] hover:text-[#3659A6]"
+            >
+              <FiEdit2 className="size-4" />
+              Edit Profile 
+            </button>
+          </div>
+        )}
         <div className="mt-10">
           {/* <h4 className="text-lg font-semibold text-text-strong">Bio</h4>
           <p className="mt-2 text-base leading-relaxed text-[#434343] max-w-[693px]">
