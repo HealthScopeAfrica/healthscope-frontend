@@ -79,6 +79,7 @@ export const settingsOverview = [
     id: "account",
     title: "Account Settings",
     description: "Manage your password, security, and account preferences",
+    href: "/dashboard/profile/account-settings",
     icon: FiShield,
   },
   {
