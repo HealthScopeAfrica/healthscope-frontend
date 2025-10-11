@@ -1,5 +1,5 @@
 import type { Route } from "./+types/profile.account-settings";
-import AccountSettings from "../../(dashboard)/profile/account-settings";
+import AccountSettings from "~/(dashboard)/profile/account-settings";
 
 export function meta({}: Route.MetaArgs) {
   return [
