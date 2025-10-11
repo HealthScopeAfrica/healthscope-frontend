@@ -159,7 +159,7 @@ export default function PartnerAuthPage() {
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
                 <span className="text-gray-700">
-                  Generate impact analytics
+                  Generate impact metrics & analytics
                 </span>
               </div>
             </div>
