@@ -15,6 +15,7 @@ import { ProfileInfoForm } from "./components/profile-info-form";
 import { HealthInterests } from "./components/health-interests";
 import { Tabs, TabsContent, TabsList } from "~/components/ui/tabs";
 import { ReadingHistory } from "./components/reading-history";
+import { SettingsContent } from "./components/settings-content";
 
 export function Profile() {
   const navigate = useNavigate();
@@ -137,15 +138,7 @@ export function Profile() {
               value="settings"
               className="focus-visible:outline-none"
             >
-              <section className="rounded-2xl border border-[#E5E5E5] bg-white p-6 shadow-[0_12px_32px_rgba(15,20,27,0.04)]">
-                <h3 className="text-xl font-semibold text-text-strong">
-                  Settings
-                </h3>
-                <p className="mt-2 text-sm text-[#6E6E6E]">
-                  Manage notification preferences and privacy controls from this
-                  tab soon.
-                </p>
-              </section>
+              <SettingsContent />
             </TabsContent>
           </Tabs>
         </div>
