@@ -1,4 +1,4 @@
-import type { Route } from "./+types/profile.notification-settings";
+import type { Route } from "./+types/profile-notification-settings";
 import NotificationSettings from "~/(dashboard)/profile/notification-settings";
 
 export function meta({}: Route.MetaArgs) {
