@@ -1,7 +1,7 @@
 
-import type { Route } from "../+types/home";
 import { generateMeta } from "~/lib/meta";
-export function meta({}: Route.MetaArgs) {
+
+export function meta() {
   return generateMeta('features');
 }
 export default function Features() {

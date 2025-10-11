@@ -31,7 +31,7 @@ export default function PublicArticlesPage() {
   const [sortBy, setSortBy] = useState("latest");
   
   // Use the existing auth system
-  const { openSignIn } = usePublicAuth();
+  const { openSignIn, openSignUp } = usePublicAuth();
 
   // Reuse the same filtering logic
   const categories = useMemo(() => {
@@ -153,7 +153,7 @@ export default function PublicArticlesPage() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
-            onClick={openSignIn}
+            onClick={openSignUp}
             className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
           >
             Create Free Account
