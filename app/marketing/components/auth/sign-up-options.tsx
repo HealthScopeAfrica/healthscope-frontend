@@ -48,10 +48,21 @@ export function SignUpOptions({ onEmailSignUp, onGoogleSignUp, onSwitchToSignIn 
         </button>
       </div>
 
-      <div className="text-center text-sm text-gray-600 mb-8">
-        <p>
+      <div className="text-center text-sm text-gray-600 mb-4">
+        <p className="text-center text-gray-600">
+        Already have an account?{" "}
+        <button
+          onClick={onSwitchToSignIn}
+          className="text-blue-400 hover:underline font-medium"
+        >
+          Sign in
+        </button>
+      </p>
+       
+      </div>
+       <p  className="text-center text-sm text-gray-600 max-w-xs">
           By signing up, you agree to our{" "}
-          <a href="#" className="text-black hover:underline">
+          <a href="#" className="text-black hover:underline"><br />
             Terms of Service
           </a>{" "}
           and{" "}
@@ -59,17 +70,6 @@ export function SignUpOptions({ onEmailSignUp, onGoogleSignUp, onSwitchToSignIn 
             Privacy Policy
           </a>
         </p>
-      </div>
-
-      <p className="text-center text-gray-600">
-        Already have an account?{" "}
-        <button
-          onClick={onSwitchToSignIn}
-          className="text-black hover:underline font-medium"
-        >
-          Sign in
-        </button>
-      </p>
     </div>
   )
 }

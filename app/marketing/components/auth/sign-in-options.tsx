@@ -52,9 +52,9 @@ export function SignInOptions({ onEmailSignIn, onGoogleSignIn, onSwitchToSignUp 
         Don't have an account?{" "}
         <button
           onClick={onSwitchToSignUp}
-          className="text-black hover:underline font-medium"
+          className="text-blue-400 hover:underline font-medium"
         >
-          Sign up
+          Create one
         </button>
       </p>
     </div>

@@ -1,4 +1,3 @@
-import type { Route } from "./+types/home";
 import Hero from "~/marketing/components/hero";
 import { PiUsers, PiWarning } from "react-icons/pi";
 import { LuCircleCheckBig } from "react-icons/lu";
@@ -19,7 +18,7 @@ const scopes = [
   }
 ];
 
-export function meta({}: Route.MetaArgs) {
+export function meta() {
   return generateMeta('home');
 }
 
@@ -27,7 +26,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <div className="py-8 md:py-16 lg:py-16">
+      <div className="py-8 md:py-16 lg:py-18">
         <h2 className="font-semibold text-center text-2xl md:text-3xl lg:text-[40px] mb-8 md:mb-12 lg:mb-16 px-4">
           Why HealthScope Matters
         </h2>
@@ -52,7 +51,7 @@ export default function Home() {
                     {scope.title}
                   </h3>
                 </div>
-                <p className="text-sm md:text-[20px] lg:text-[22px] xl:text-[22px] text-gray-600 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                   {scope.desc}
                 </p>
               </div>
@@ -68,7 +67,7 @@ export default function Home() {
                   The Solution
                 </h3>
               </div>
-              <p className="text-sm md:text-base lg:text-2xl text-gray-500 leading-relaxed max-w-none lg:max-w-[1111px] mb-4 md:mb-6 lg:mb-8">
+              <p className="text-base sm:text-lg text-gray-500 leading-relaxed max-w-none lg:max-w-[1111px] mb-4 md:mb-6 lg:mb-8">
                 HealthScope bridges this gap. We partner with stakeholders in
                 the health value chain to provide accessible health knowledge,
                 making trusted health information easy to find, easy to

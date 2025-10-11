@@ -78,7 +78,10 @@
   --color-border: var(--color-gray-200);
   --color-border-strong: var(--color-gray-400);
   --color-text: var(--color-gray-900);
+  --color-text-strong: #0a0a0a;
   --color-text-muted: var(--color-gray-600);
+  --color-input: #f3f3f5;
+  --color-input-strong: #cbced4;
 }
 
 @layer base {
@@ -94,4 +97,45 @@
 html,
 body {
   @apply bg-surface text-text;
+}
+
+/* Article Content Styles */
+.article-content h2 {
+  @apply text-2xl font-bold text-gray-900 mt-8 mb-4 first:mt-0;
+}
+
+.article-content h3 {
+  @apply text-lg font-semibold text-gray-800 mt-5 mb-2;
+}
+
+.article-content p {
+  @apply text-gray-700 mb-4 leading-7;
+}
+
+.article-content ul,
+.article-content ol {
+  @apply mb-4 pl-6;
+}
+
+.article-content ul {
+  @apply list-disc;
+}
+
+.article-content ol {
+  @apply list-decimal;
+}
+
+.article-content li {
+  @apply mb-2 text-gray-700;
+}
+
+.article-content strong {
+  @apply font-semibold text-gray-900;
+}
+
+/* Skeleton loading animation */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
 }

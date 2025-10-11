@@ -1,5 +1,6 @@
 import Button from "~/components/button";
 import { usePublicAuth } from "./auth/public-auth-provider";
+import { Link } from "react-router";
 
 const Hero = () => {
   const { openSignUp } = usePublicAuth();
@@ -10,16 +11,16 @@ const Hero = () => {
           <h1 className="text-2xl md:text-4xl lg:text-5xl xl:text-[56px] font-medium leading-[110%] -tracking-[4%] max-w-none md:max-w-[575px]">
             From quick answers to deep insights
           </h1>
-          <p className="text-base md:text-md lg:text-lg xl:text-[22px] leading-[120%] tracking-[-2%] text-gray-600 max-w-none md:max-w-[540px]">
+          <p className="text-base sm:text-lg leading-[120%] tracking-[-2%] text-gray-600 max-w-none md:max-w-[540px]">
             HealthScope is Africa's first experts-driven health content
             Platform, designed to give you trusted information anytime,
             anywhere.
           </p>
         </div>
         <div className="flex flex-wrap gap-3 md:gap-5">
-          <Button className="shrink-0" onClick={openSignUp}>Start Reading</Button>
-          <Button variant="outline" className="shrink-0">Talk to Kulo</Button>
-        </div>
+         <Link to="open/articles"><Button className="shrink-0">Start Reading</Button></Link>
+          {/* <Button variant="outline" className="shrink-0">Talk to Kulo</Button>*/}
+        </div> 
       </div>
       <div className="flex-1 flex justify-center md:justify-end">
         <img
