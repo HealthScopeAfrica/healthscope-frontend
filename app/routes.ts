@@ -27,4 +27,9 @@ export default [
 
   // Complete account onboarding
   route("onboarding", "reader/onboarding.tsx"),
+	route("dashboard", "routes/(dashboard)/dashboard.tsx"),
+	route("dashboard/profile", "routes/(dashboard)/profile.tsx"),
+	route("dashboard/profile/account-settings", "routes/(dashboard)/profile-account-settings.tsx"),
+	route("dashboard/profile/notification-settings", "routes/(dashboard)/profile-notification-settings.tsx"),
+	route("dashboard/profile/privacy-settings", "routes/(dashboard)/profile-privacy-settings.tsx"),
 ] satisfies RouteConfig;
