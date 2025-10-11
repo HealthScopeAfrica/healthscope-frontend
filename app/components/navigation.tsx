@@ -11,6 +11,11 @@ import { LuX } from "react-icons/lu";
 import { Link } from "react-router";
 import { usePublicAuth } from "~/marketing/components/auth/public-auth-provider";
 
+interface NavigationProps {
+  hideAuthButtons?: boolean;
+  showHomeButton?: boolean;
+}
+
 const links = [
   {
     title: "Features",
@@ -29,9 +34,22 @@ const links = [
     href: "/about-us",
   },
 ];
-const Navigation = () => {
+
+const Navigation = ({ hideAuthButtons = false, showHomeButton = false }: NavigationProps) => {
   const [open, setOpen] = useState(false);
-  const { openSignIn, openSignUp } = usePublicAuth();
+  
+  // Safely handle auth context - might not be available in auth layouts
+  let openSignIn = () => {};
+  let openSignUp = () => {};
+  
+  try {
+    const { openSignIn: contextSignIn, openSignUp: contextSignUp } = usePublicAuth();
+    openSignIn = contextSignIn;
+    openSignUp = contextSignUp;
+  } catch (error) {
+    // usePublicAuth not available (e.g., in auth layout) - use empty functions
+    console.log('PublicAuthProvider not available, auth buttons will be hidden or non-functional');
+  }
   return (
     <>
       <div className="container flex items-center justify-between py-4 xl:py-6">
@@ -57,10 +75,19 @@ const Navigation = () => {
               </Link>
             ))}
           </div>
-          <div className="flex gap-3 shrink-0">
-            <Button variant="outline" onClick={openSignIn}>Sign In</Button>
-            <Button onClick={openSignUp}>Get Started</Button>
-          </div>
+          {!hideAuthButtons && (
+            <div className="flex gap-3 shrink-0">
+              <Button variant="outline" onClick={openSignIn}>Sign In</Button>
+              <Button onClick={openSignUp}>Get Started</Button>
+            </div>
+          )}
+          {showHomeButton && (
+            <div className="flex gap-3 shrink-0">
+              <Link to="/">
+                <Button variant="outline">Home</Button>
+              </Link>
+            </div>
+          )}
         </div>
 
         <div className="lg:hidden">
@@ -134,27 +161,38 @@ const Navigation = () => {
                         {link.title}
                       </Link>
                     ))}
-                    <div className="flex flex-col gap-3 mt-6 px-4">
-                      <Button 
-                        variant="outline" 
-                        className="w-full" 
-                        onClick={() => {
-                          setOpen(false);
-                          openSignIn();
-                        }}
-                      >
-                        Sign In
-                      </Button>
-                      <Button 
-                        className="w-full" 
-                        onClick={() => {
-                          setOpen(false);
-                          openSignUp();
-                        }}
-                      >
-                        Get Started
-                      </Button>
-                    </div>
+                    {!hideAuthButtons && (
+                      <div className="flex flex-col gap-3 mt-6 px-4">
+                        <Button 
+                          variant="outline" 
+                          className="w-full" 
+                          onClick={() => {
+                            setOpen(false);
+                            openSignIn();
+                          }}
+                        >
+                          Sign In
+                        </Button>
+                        <Button 
+                          className="w-full" 
+                          onClick={() => {
+                            setOpen(false);
+                            openSignUp();
+                          }}
+                        >
+                          Get Started
+                        </Button>
+                      </div>
+                    )}
+                    {showHomeButton && (
+                      <div className="flex flex-col gap-3 mt-6 px-4">
+                        <Link to="/" onClick={() => setOpen(false)}>
+                          <Button variant="outline" className="w-full">
+                            Home
+                          </Button>
+                        </Link>
+                      </div>
+                    )}
                   </div>
                 </div>
               </DialogPanel>
