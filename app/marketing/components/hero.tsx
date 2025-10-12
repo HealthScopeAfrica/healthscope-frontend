@@ -19,7 +19,11 @@ const Hero = () => {
         </div>
         <div className="flex flex-wrap gap-3 md:gap-5">
          <Link to="open/articles"><Button className="shrink-0">Start Reading</Button></Link>
-          {/* <Button variant="outline" className="shrink-0">Talk to Kulo</Button>*/}
+          <Button variant="outline" className="shrink-0" onClick={openSignUp}>
+            <div className="flex justify-center items-center gap-1">
+              Talk to Kulo <img src="/public/images/ai-technology.png" alt="Kulo AI" className="w-5 h-5" />
+            </div>
+            </Button>
         </div> 
       </div>
       <div className="flex-1 flex justify-center md:justify-end">
