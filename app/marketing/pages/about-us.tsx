@@ -54,7 +54,7 @@ export default function AboutUsPage() {
                 <span className="sm:hidden"> </span>Across Africa */}
                 Democratizing Health Information Across Africa
               </h1>
-              <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-2xl">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl">
                 HealthScope is a world-class digital health platform empowering
                 millions across Africa and the globe with verified, accessible
                 health information in their native languages.
@@ -176,7 +176,7 @@ export default function AboutUsPage() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-gray-900 mb-3 sm:mb-4">
               Our Mission & Vision
             </h2>
-            <p className="text-gray-700 text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
+            <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
               Building a healthier Africa through accessible, verified health
               information
             </p>
@@ -190,7 +190,7 @@ export default function AboutUsPage() {
               <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-gray-900 mb-3 sm:mb-4">
                 Our Mission
               </h3>
-              <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                 To democratize access to reliable health information across
                 Africa and beyond, empowering communities to make informed
                 decisions about their health and wellbeing through verified,
@@ -205,7 +205,7 @@ export default function AboutUsPage() {
               <h3 className="text-lg sm:text-xl md:text-2xl font-medium text-gray-900 mb-3 sm:mb-4">
                 Our Vision
               </h3>
-              <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                 A world where every African has access to trusted health
                 information in their own language, breaking down barriers to
                 healthcare knowledge and improving health outcomes for millions.
@@ -233,7 +233,7 @@ export default function AboutUsPage() {
                   <h4 className="text-base sm:text-lg font-medium text-gray-900 mb-2 sm:mb-3">
                     Trust & Accuracy
                   </h4>
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                  <p className="text-gray-600 text-base sm:text-md leading-relaxed">
                     Every piece of content is verified by licensed healthcare
                     professionals
                   </p>
@@ -246,8 +246,8 @@ export default function AboutUsPage() {
                   <h4 className="text-base sm:text-lg font-medium text-gray-900 mb-2 sm:mb-3">
                     Accessibility
                   </h4>
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
-                    Content available in 20+ languages with audio support for
+                  <p className="text-gray-600 text-base sm:text-md leading-relaxed">
+                    Content available in 5+ languages with audio support for
                     all
                   </p>
                 </Card>
@@ -259,7 +259,7 @@ export default function AboutUsPage() {
                   <h4 className="text-base sm:text-lg font-medium text-gray-900 mb-2 sm:mb-3">
                     Community
                   </h4>
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                  <p className="text-gray-600 tex-base sm:text-md leading-relaxed">
                     Built by healthcare workers for communities across Africa
                   </p>
                 </Card>
@@ -271,7 +271,7 @@ export default function AboutUsPage() {
                   <h4 className="text-base sm:text-lg font-medium text-gray-900 mb-2 sm:mb-3">
                     Innovation
                   </h4>
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                  <p className="text-gray-600 text-base sm:text-md leading-relaxed">
                     Leveraging AI and technology to personalize health education
                   </p>
                 </Card>
@@ -289,7 +289,7 @@ export default function AboutUsPage() {
             <div className="relative order-last lg:order-first">
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="/images/healthcare professional.jpg"
+                  src="/images/hs-us.jpg"
                   alt="Healthcare professional"
                   className="w-full h-auto"
                 />
@@ -319,7 +319,7 @@ export default function AboutUsPage() {
                 </p>
                 <p>
                   Today, HealthScope serves over 12 million monthly readers
-                  across 45 countries, with content in 20+ languages. We've
+                  across 45 countries, with content in 5+ languages. We've
                   partnered with 500+ healthcare organizations, from the WHO to
                   local community health centers, all working toward the same
                   goal: a healthier, better-informed Africa.
