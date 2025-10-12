@@ -1,6 +1,6 @@
 "use client";
 
-import Button  from "~/components/button";
+import Button from "~/components/button";
 import { Card } from "~/components/ui/card";
 import {
   Target,
@@ -55,18 +55,18 @@ export default function AboutUsPage() {
                 Democratizing Health Information Across Africa
               </h1>
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl">
-                HealthScope is a world-class digital health platform empowering
-                millions across Africa and the globe with verified, accessible
-                health information in their native languages.
+                HealthScope is a world-class digital health content platform
+                empowering millions across Africa and the globe with reliable,
+                accessible health information curated by health professionals.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
                 <Link to="/partner/auth/login">
-                <Button className="flex flex-[0.1]" >
-                  <div className="flex justify-center items-center">
-                    <span>Join Our Mission</span>
-                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-                  </div>
-                </Button>
+                  <Button className="flex flex-[0.1]">
+                    <div className="flex justify-center items-center">
+                      <span>Join Our Mission</span>
+                      <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                    </div>
+                  </Button>
                 </Link>
                 {/* <Button
                   variant="outline"
@@ -193,8 +193,8 @@ export default function AboutUsPage() {
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                 To democratize access to reliable health information across
                 Africa and beyond, empowering communities to make informed
-                decisions about their health and wellbeing through verified,
-                culturally relevant content.
+                decisions about their health and wellbeing through expert-driven
+                content.
               </p>
             </Card>
 
@@ -206,9 +206,10 @@ export default function AboutUsPage() {
                 Our Vision
               </h3>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                A world where every African has access to trusted health
-                information in their own language, breaking down barriers to
-                healthcare knowledge and improving health outcomes for millions.
+                To unite Africa’s health voices in a digital movement that
+                combats misinformation and ensures every one, young or old,
+                can access accurate and trustworthy health information anytime,
+                anywhere.
               </p>
             </Card>
           </div>
@@ -247,8 +248,7 @@ export default function AboutUsPage() {
                     Accessibility
                   </h4>
                   <p className="text-gray-600 text-base sm:text-md leading-relaxed">
-                    Content available in 5+ languages with audio support for
-                    all
+                    Content available in 5+ languages with audio support for all
                   </p>
                 </Card>
 
@@ -351,7 +351,7 @@ export default function AboutUsPage() {
               </div>
               <div>
                 <h3 className="text-base sm:text-lg font-medium text-gray-900 mb-2">
-                  Verified by Experts
+                  Expert-Driven
                 </h3>
                 <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                   Every article is reviewed and approved by licensed healthcare
@@ -368,7 +368,7 @@ export default function AboutUsPage() {
               </div>
               <div>
                 <h3 className="text-base sm:text-lg font-medium text-gray-900 mb-2">
-                  Culturally Relevant
+                  Locally Relevant
                 </h3>
                 <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                   Content created with African contexts in mind, addressing
@@ -388,8 +388,8 @@ export default function AboutUsPage() {
                   Truly Multilingual
                 </h3>
                 <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                  Available in English, French, Arabic, Swahili, and 16+ other
-                  African languages with professional translations
+                  Available in English, Yoruba, Hausa, Igbo, French, Swahili,
+                  and other African languages with professional translations.
                 </p>
               </div>
             </div>
@@ -453,7 +453,7 @@ export default function AboutUsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-gray-900 mb-3 sm:mb-4">
-              Our Team & Contributors
+              Our Partners & Stakeholders
             </h2>
             <p className="text-gray-700 text-base sm:text-lg md:text-xl">
               Driven by healthcare professionals dedicated to improving public
@@ -494,10 +494,11 @@ export default function AboutUsPage() {
                 85+
               </div>
               <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 mb-2">
-                Languages Specialists
+                Health Agencies & Institutions
               </h3>
               <p className="text-gray-600 text-xs sm:text-sm">
-                Professional translators ensuring accuracy across languages
+                Partnering with government bodies to promote verified and
+                impactful health information.
               </p>
             </Card>
           </div>

@@ -14,7 +14,7 @@ export default function Features() {
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Discover comprehensive tools and resources designed to support your health journey, 
-            whether you're a reader, healthcare partner, or medical contributor.
+            whether you're a reader, healthcare partner, or healthcare professional.
           </p>
         </div>
         
@@ -25,7 +25,7 @@ export default function Features() {
             </div>
             <h3 className="text-xl font-semibold mb-4">Comprehensive Library</h3>
             <p className="text-gray-600">
-              Access thousands of peer-reviewed articles on various health topics, 
+              Access thousands of expert written and reviewed articles on various health topics, 
               from preventive care to specialized medical conditions.
             </p>
           </div>
@@ -59,7 +59,7 @@ export default function Features() {
             <h3 className="text-xl font-semibold mb-4">Expert Contributors</h3>
             <p className="text-gray-600">
               Learn from verified healthcare professionals, researchers, 
-              and medical institutions you can trust.
+              and healthcare institutions you can trust.
             </p>
           </div>
           
@@ -127,11 +127,11 @@ export default function Features() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                For Medical Contributors
+                For Healthcare Professional
               </h2>
               <p className="text-gray-600 mb-6">
                 Share your expertise with a global audience of health-conscious readers. 
-                Join our community of verified medical professionals making a difference.
+                Join our community of healthcare partners and professionals making a difference.
               </p>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-center">
