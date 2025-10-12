@@ -6,6 +6,7 @@ export default [
     index("marketing/pages/home.tsx"),
     route("features", "marketing/pages/features.tsx"),
     route("about-us", "marketing/pages/about-us.tsx"),
+    route("contact-us", "marketing/pages/contact-us.tsx"), // new contact us route
     route("open/articles", "marketing/pages/articles.tsx"),
     route("open/articles/:id", "marketing/pages/article-detail.tsx"),
   ]),

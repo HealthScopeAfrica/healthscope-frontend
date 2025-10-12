@@ -1,165 +1,112 @@
-
 import type { Route } from "../+types/home";
 import { generateMeta } from "~/lib/meta";
+
 export function meta({}: Route.MetaArgs) {
-  return generateMeta('features');
+  return generateMeta("features");
 }
+
+type Feature = { title: string; body: string; img: string; alt: string };
+
+const FEATURES: Feature[] = [
+  {
+    title: "Multilingual & Audio Access",
+    body:
+      "Read or listen in multiple African languages. Health knowledge should be easy to understand, wherever you are. Break down language barriers to better health.",
+    img: "/images/features-1.png",
+    alt: "People using multilingual content",
+  },
+  {
+    title: "Expert-Reviewed Articles",
+    body:
+      "Health content written and reviewed by African health professionals—giving you facts you can trust. No guesswork, just reliable information tailored to your needs.",
+    img: "/images/features-w.png",
+    alt: "Open journals and research",
+  },
+  {
+    title: "Virtual Consultations",
+    body:
+      "Go beyond articles with direct access to licensed professionals—book one-on-one consultations for personalized care. Connect with experts who understand your context.",
+    img: "/images/features-3.png",
+    alt: "Doctor and patient on video call",
+  },
+  {
+    title: "Smart Search",
+    body:
+      "Search by symptoms, topics, or keywords, and discover personalized suggestions that guide you to the right information quickly. AI-powered intelligence that understands what you need.",
+    img: "/images/features-4.png",
+    alt: "AI smart search interface",
+  },
+];
+
 export default function Features() {
   return (
-    <div className="py-16">
+    <main className="py-14 md:py-20"> {/* extra top/bottom margin for the whole section */}
       <div className="container">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Features That Empower Health
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover comprehensive tools and resources designed to support your health journey, 
-            whether you're a reader, healthcare partner, or medical contributor.
+        {/* Heading block */}
+        <div className="mx-auto max-w-3xl text-center">
+          {/* Our Core Features — 20px / 120% / -2% */}
+          <p className="font-normal tracking-[-0.02em] leading-[120%] text-[20px] text-slate-700">
+            Our Core Features
           </p>
+
+          {/* Small extra space between lines */}
+          <h1 className="mt-3 font-medium tracking-[-0.02em] leading-[120%] text-[24px] sm:text-[28px] md:text-[32px] text-slate-900">
+            Accessible, accurate, and culturally relevant
+            <br className="hidden sm:block" />
+            healthcare information
+          </h1>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-              📚
-            </div>
-            <h3 className="text-xl font-semibold mb-4">Comprehensive Library</h3>
-            <p className="text-gray-600">
-              Access thousands of peer-reviewed articles on various health topics, 
-              from preventive care to specialized medical conditions.
-            </p>
-          </div>
-          
-          <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
-              🎯
-            </div>
-            <h3 className="text-xl font-semibold mb-4">Personalized Content</h3>
-            <p className="text-gray-600">
-              Get tailored health information based on your interests, 
-              health goals, and reading preferences.
-            </p>
-          </div>
-          
-          <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
-              ⚡
-            </div>
-            <h3 className="text-xl font-semibold mb-4">Real-time Updates</h3>
-            <p className="text-gray-600">
-              Stay informed with the latest health news, research findings, 
-              and medical breakthroughs as they happen.
-            </p>
-          </div>
-          
-          <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-6">
-              👥
-            </div>
-            <h3 className="text-xl font-semibold mb-4">Expert Contributors</h3>
-            <p className="text-gray-600">
-              Learn from verified healthcare professionals, researchers, 
-              and medical institutions you can trust.
-            </p>
-          </div>
-          
-          <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-6">
-              🔒
-            </div>
-            <h3 className="text-xl font-semibold mb-4">Privacy & Security</h3>
-            <p className="text-gray-600">
-              Your health information and reading preferences are protected 
-              with enterprise-grade security measures.
-            </p>
-          </div>
-          
-          <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
-              📊
-            </div>
-            <h3 className="text-xl font-semibold mb-4">Analytics & Insights</h3>
-            <p className="text-gray-600">
-              Track your learning progress and discover health trends 
-              relevant to your interests and goals.
-            </p>
-          </div>
-        </div>
-        
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 md:p-12 text-white">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-4">
-                For Healthcare Partners
-              </h2>
-              <p className="text-blue-100 mb-6">
-                Join our network of trusted healthcare organizations and reach 
-                thousands of engaged readers with your valuable content and expertise.
-              </p>
-              <ul className="space-y-2 text-blue-100">
-                <li className="flex items-center">
-                  <span className="mr-2">✓</span>
-                  Content management dashboard
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-2">✓</span>
-                  Advanced analytics and insights
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-2">✓</span>
-                  Direct reader engagement tools
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-2">✓</span>
-                  Brand visibility and recognition
-                </li>
-              </ul>
-            </div>
-            <div className="text-center">
-              <button className="bg-white text-blue-600 px-8 py-3 rounded-md hover:bg-gray-100 font-semibold">
-                Become a Partner
-              </button>
-            </div>
-          </div>
-        </div>
-        
-        <div className="mt-16 bg-gray-50 rounded-2xl p-8 md:p-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                For Medical Contributors
-              </h2>
-              <p className="text-gray-600 mb-6">
-                Share your expertise with a global audience of health-conscious readers. 
-                Join our community of verified medical professionals making a difference.
-              </p>
-              <ul className="space-y-2 text-gray-700">
-                <li className="flex items-center">
-                  <span className="mr-2 text-green-600">✓</span>
-                  Peer review process for quality assurance
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-2 text-green-600">✓</span>
-                  Professional recognition and credibility
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-2 text-green-600">✓</span>
-                  Impact tracking and reader feedback
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-2 text-green-600">✓</span>
-                  Invitation-only exclusive community
-                </li>
-              </ul>
-            </div>
-            <div className="text-center">
-              <button className="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 font-semibold">
-                Request Invitation
-              </button>
-            </div>
-          </div>
+
+        {/* Grid: tighter column gap, a bit more row gap */}
+        <div className="
+    mt-14 md:mt-20
+    grid grid-cols-1 md:grid-cols-2
+    gap-y-20 md:gap-y-[88px]
+    gap-x-30
+    
+    md:[&>article:nth-child(odd)]:-mr-[1px]
+    md:[&>article:nth-child(even)]:-ml-[1px]
+  ">
+          {FEATURES.map((f) => (
+            <article
+              key={f.title}
+              className="
+                mx-auto w-full max-w-[384px]
+                md:w-[384px] md:h-[575px]
+                overflow-hidden border border-slate-200 bg-white shadow-sm
+                flex flex-col
+                rounded-b-[10px]  /* bottom-only radius */
+                md:-mr-[2px]
+              "
+            >
+              {/* Square image: 384x384 on md+, responsive square on small screens */}
+              <div className="w-full">
+                <div className="aspect-square w-full overflow-hidden md:w-[384px] md:h-[384px]">
+                  <img
+                    src={f.img}
+                    alt={f.alt}
+                    loading="lazy"
+                    className="h-full w-full object-cover" /* preserves ratio, fills square */
+                  />
+                </div>
+              </div>
+
+              {/* Content (gap: 15px) */}
+              <div className="flex flex-col gap-[15px] p-4 sm:p-5">
+                {/* Title — 24px / 120% / -2% / semi-bold / centered */}
+                <h3 className="font-semibold tracking-[-0.02em] leading-[120%] text-[20px] sm:text-[22px] md:text-[24px] text-slate-900">
+                  {f.title}
+                </h3>
+
+                {/* Body — 16px / 145% / 0% tracking */}
+                <p className="text-[16px] leading-[145%] tracking-[0] text-slate-600">
+                  {f.body}
+                </p>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 }
