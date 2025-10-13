@@ -62,11 +62,11 @@ export function SignUpOptions({ onEmailSignUp, onGoogleSignUp, onSwitchToSignIn 
       </div>
        <p  className="text-center text-sm text-gray-600 max-w-xs">
           By signing up, you agree to our{" "}
-          <a href="#" className="text-black hover:underline"><br />
+          <a href="#" className="text-black hover:underline underline"><br />
             Terms of Service
           </a>{" "}
           and{" "}
-          <a href="#" className="text-black hover:underline">
+          <a href="#" className="text-black hover:underline underline">
             Privacy Policy
           </a>
         </p>
